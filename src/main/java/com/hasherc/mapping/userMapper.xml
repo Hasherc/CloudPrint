@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hasherc.dao.UserDao">
+
+    <resultMap id="userAuth" type="com.hasherc.entity.UserAuth">
+        <id column="u_uuid" jdbcType="VARCHAR" property="uuid"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="phone_num" jdbcType="VARCHAR" property="phoneNum"/>
+        <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime"/>
+        <result column="status" jdbcType="BIT" property="status"/>
+    </resultMap>
+    <resultMap id="userInfo" type="com.hasherc.entity.UserInfo">
+        <id column="uuid" jdbcType="VARCHAR" property="uuid"/>
+        <result column="nickName" jdbcType="VARCHAR" property="nickName"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="phone_Num" jdbcType="VARCHAR" property="phoneNum"/>
+        <result column="balance" jdbcType="FLOAT" property="balance"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime"/>
+
+    </resultMap>
+
+    <update id="insertLoginTime" parameterType="userAuth">
+        UPDATE CloudPrint.u_auth
+        SET last_login_time = CURRENT_TIMESTAMP
+        WHERE u_uuid = #{uuid, jdbcType=VARCHAR}
+    </update>
+
+    <select id="findAuthStatusByPhoneNum" resultType="int">
+        SELECT
+        status
+        FROM CloudPrint.u_auth
+        WHERE phone_num = #{phoneNum, jdbcType = VARCHAR}
+    </select>
+
+
+    <select id="loginByPhone" resultType="java.lang.String">
+        SELECT
+        u_uuid
+        FROM CloudPrint.u_auth
+        WHERE phone_num = #{phoneNum, jdbcType=VARCHAR} and password = #{password, jdbcType=VARCHAR}
+    </select>
+    <insert id="insertAuth" parameterType="userAuth">
+        insert into
+        CloudPrint.u_auth(
+        u_uuid,
+        email,
+        phone_num,
+        password,
+        last_login_time,
+        status
+        )
+        values (
+        #{uuid,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR},
+        #{phoneNum,jdbcType=VARCHAR},
+        #{password,jdbcType=VARCHAR},
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+        #{status,jdbcType=TINYINT}
+        )
+    </insert>
+    <insert id="insertUserInfo" parameterType="userInfo">
+        insert into
+        u_info (
+        uuid,
+        nickname,
+        email,
+        phone_num,
+        balance
+        )
+        values (
+        #{uuid,jdbcType=VARCHAR},
+        #{nickName,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR},
+        #{phoneNum,jdbcType=VARCHAR},
+        #{balance,jdbcType=FLOAT}
+        )
+    </insert>
+
+
+</mapper>

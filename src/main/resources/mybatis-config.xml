@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 定义别名 -->
+    <typeAliases>
+        <typeAlias alias="userInfo" type="com.hasherc.entity.UserInfo"/>
+        <typeAlias alias="userAuth" type="com.hasherc.entity.UserAuth"/>
+        <typeAlias alias="file" type="com.hasherc.entity.FileEntity"/>
+        <typeAlias alias="order" type="com.hasherc.entity.Order"/>
+    </typeAliases>
+
+</configuration>

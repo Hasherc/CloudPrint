@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hasherc.dao.OrderDao">
+
+    <resultMap id="order" type="order">
+        <result column="order_uuid" jdbcType="VARCHAR" property="orderUUID"/>
+        <result column="u_uuid" jdbcType="VARCHAR" property="userUUID"/>
+        <result column="file_name" jdbcType="VARCHAR" property="fileName"/>
+        <result column="cost" jdbcType="DOUBLE" property="cost"/>
+        <result column="phone_Num" jdbcType="VARCHAR" property="phoneNum"/>
+        <result column="done_time" jdbcType="TIMESTAMP" property="doneTime"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="color" jdbcType="TINYINT" property="color"/>
+        <result column="duplex" jdbcType="TINYINT" property="duplex"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+    </resultMap>
+
+
+    <delete id="deleteOrder">
+        DELETE FROM order WHERE order_uuid = #{orderUUID, jdbcType=VARCHAR}
+    </delete>
+
+
+    <select id="finUndoOrder" resultType="Integer">
+        SELECT status FROM CloudPrint.order WHERE u_uuid = #{uuid,jdbcType=VARCHAR}
+    </select>
+
+
+    <insert id="insertOrder" parameterType="order">
+        insert into
+        CloudPrint.order (
+        order_uuid,
+        u_uuid,
+        file_name,
+        cost,
+        status,
+        done_time,
+        create_time,
+        color,
+        duplex,
+        phoneNum
+        )
+        values (
+        #{orderUUID ,jdbcType=VARCHAR},
+        #{userUUID, jdbcType=VARCHAR},
+        #{fileName, jdbcType=VARCHAR},
+        #{cost, jdbcType=DOUBLE},
+        #{status, jdbcType=INTEGER},
+        #{doneTime, jdbcType=TIMESTAMP},
+        CURRENT_TIMESTAMP,
+        #{color, jdbcType=TINYINT},
+        #{duplex, jdbcType=TINYINT},
+        #{phoneNum, jdbcType=VARCHAR}
+        )
+    </insert>
+    <select id="getUnPaidOrder" resultMap="order">
+        SELECT * FROM CloudPrint.order WHERE u_uuid = #{uuid, jdbcType=VARCHAR} AND status &lt;= 1
+    </select>
+
+</mapper>

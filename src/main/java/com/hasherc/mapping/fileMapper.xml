@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hasherc.dao.FileDao">
+    <resultMap id="file" type="com.hasherc.entity.FileEntity">
+        <id column="f_uuid" jdbcType="VARCHAR" property="fileUuid"/>
+        <result column="uuid" jdbcType="VARCHAR" property="uuid"/>
+        <result column="file_name" jdbcType="VARCHAR" property="fileName"/>
+        <result column="file_path" jdbcType="VARCHAR" property="filePath"/>
+        <result column="file_size" jdbcType="BIGINT" property="fileSize"/>
+        <result column="file_type" jdbcType="VARCHAR" property="fileType"/>
+        <result column="upload_time" jdbcType="TIMESTAMP" property="uploadTime"/>
+    </resultMap>
+
+    <select id="getFilePage" resultType="java.lang.Integer">
+        SELECT file_pages FROM CloudPrint.file WHERE uuid=#{uuid, jdbcType=VARCHAR} AND
+        file_name=#{fileName, jdbcType=VARCHAR}
+    </select>
+
+    <insert id="insertFile" parameterType="file">
+        insert into
+        CloudPrint.file (
+        f_uuid,
+        uuid,
+        file_name,
+        file_path,
+        file_size,
+        file_type,
+        upload_time
+        )
+        values (
+        #{fileUuid,jdbcType=VARCHAR},
+        #{uuid,jdbcType=VARCHAR},
+        #{fileName,jdbcType=VARCHAR},
+        #{filePath,jdbcType=VARCHAR},
+        #{fileSize,jdbcType=BIGINT},
+        #{fileType,jdbcType=VARCHAR},
+        CURRENT_TIMESTAMP
+        )
+    </insert>
+    <delete id="deleteFile">
+        DELETE FROM file WHERE uuid = #{uuid, jdbcType=VARCHAR} and file_name = #{fileName, jdbcType=VARCHAR}
+    </delete>
+    <select id="getFileList" resultType="java.lang.String">
+        SELECT
+        file_name
+        FROM file
+        WHERE
+        uuid = #{uuid, jdbcType = VARCHAR}
+    </select>
+</mapper>
