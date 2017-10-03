@@ -33,7 +33,10 @@ public class LoginController {
         else return "main";
 
     }
-
+    @RequestMapping("/printSelect")
+    public String printSelect(){
+        return "print";
+    }
     @RequestMapping("/toLogin")
     public String toLogin() {
         return "login";

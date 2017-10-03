@@ -13,7 +13,7 @@
 
     <title></title>
     <link rel="stylesheet" href="/resources/css/style.css">
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+
 
 
 </head>
@@ -28,8 +28,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">CloudPrint</a>
-            <a class="navbar-brand" href="#"><img width="100"
+            <a class="navbar-brand" href="/">CloudPrint</a>
+            <a class="navbar-brand" href="/"><img width="100"
                                                   src="/resources/images/7c96b27898c256a55929b81d7830e03c.png"
                                                   alt="Logo white"></a>
 

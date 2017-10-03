@@ -1,40 +1,75 @@
 .myNav {
     font-size: large;
-    font-weight: 900;
+    font-weight:900;
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
-}
-
-/*非常重要的样式让背景图片100%适应整个屏幕*/
+html, body {width:100%;height:100%;} /*非常重要的样式让背景图片100%适应整个屏幕*/
 #loginRegisterDiv {
-    background-color: rgba(196, 212, 218, 0.66);
-    border-radius: 15px 15px 15px 15px;
+    background-color: rgba(242, 243, 255, 0.87);
+    border-radius:15px 15px 15px 15px;
 
 }
 
 .col-centered {
-    display: inline-block;
-    float: none;
-    text-align: left;
-    margin-right: -4px;
+    display:inline-block;
+    float:none;
+    text-align:left;
+    margin-right:-4px;
 }
 
-.container {
-    display: table;
-    height: 80%;
+.container{
+    display:table;
+    height:80%;
 }
 
-.row {
+.row{
     display: table-cell;
     vertical-align: middle;
 }
-
-#notice {
+#notice{
     background-color: rgba(252, 165, 128, 0.38);
     font-size: medium;
     text-align: center;
     padding: 5px;
+}
+
+
+.select-div{
+    border: 2px;
+    border-style: double;
+    border-color: rgba(107, 94, 188, 0.5);
+    border-radius: 35px;
+    margin: 65px;
+}
+.select-div2{
+    border: 2px;
+    border-style: double;
+    border-color: rgba(107, 94, 188, 0.5);
+    border-radius: 35px;
+    margin: 65px;
+    background-color: rgba(162, 218, 215, 0.4);
+}
+
+.selecttext{
+    text-align:left;
+    display: inline-block;
+    color: rgba(38, 43, 128, 0.44);
+    font-size: 3em;
+    background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(49, 19, 69, 0.75)), to(rgba(103, 103, 147, 0.57)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient {
+    display: inline-block;
+    color: rgba(38, 43, 128, 0.44);
+    font-size: 3em;
+    background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(0, 3, 128, 0.52)), to(rgba(123, 212, 218, 0.42)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#jumb{
+    background-color: rgba(242, 243, 255, 0.87);
+    border-radius: 50px;
+    text-align: center;
 }

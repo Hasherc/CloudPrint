@@ -10,9 +10,24 @@ $(document).ready(function () {
                 $("#loginCoin").hide();
                 $("#registerCoin").hide();
                 $("#logoutCoin").show();
+
             } else {
+
             }
         }
+    });
+});
+
+$(document).ready(function () {
+    $("#typeSelectFile").hover(function () {
+        $("#typeSelectFile").addClass("select-div2");
+    }, function () {
+        $("#typeSelectFile").removeClass("select-div2");
+    });
+    $("#typeSelectImg").hover(function () {
+        $("#typeSelectImg").addClass("select-div2");
+    }, function () {
+        $("#typeSelectImg").removeClass("select-div2");
     });
 });
 

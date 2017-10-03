@@ -13,7 +13,6 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <title></title>
     <link rel="stylesheet" href="/resources/css/style.css">
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 
 </head>
 <body background="/resources/images/25076907_1377825550765.jpg">
@@ -35,7 +34,7 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a class="myNav" href="#">打印</a></li>
+                <li><a class="myNav" href="/printSelect">打印</a></li>
                 <li><a class="myNav" href="#">订单信息</a></li>
                 <li><a class="myNav" href="#">关于我们</a></li>
             </ul>
