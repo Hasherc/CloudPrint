@@ -26,16 +26,16 @@ public class FileController {
         文件上传
      */
     @RequestMapping("/upload")
-    public String upload(Model model, @RequestParam() MultipartFile file, HttpSession session) {
+    public String upload(@RequestParam(value = "file",required = false) MultipartFile file, HttpSession session) {
 
         System.out.println(file);
         if (file == null) return JsonUtil.resultToJson(StatusCode.STATUS_UPFILE_NOT_EXIST);
-
-        String uuid = session.getAttribute("uuid").toString();
-        //用户未登录或超时
-        if (uuid == null) {
+        if (session.getAttribute("uuid") == null){
             return JsonUtil.resultToJson(StatusCode.SESSION_TIMEOUT);
         }
+        String uuid = session.getAttribute("uuid").toString();
+        //用户未登录或超时
+
 
 
         return fileService.upload(uuid, file);

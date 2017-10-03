@@ -21,6 +21,7 @@ public class FileUtil {
 
 
     public static String getFileType(String fileName) {
+        if (!fileName.contains(".")) return "";
         String fileType = fileName.substring(fileName.lastIndexOf(".") + 1);
         return fileType;
     }

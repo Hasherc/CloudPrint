@@ -12,7 +12,7 @@ public class StatusCode {
     public static final int GLOBAL_FAIL = 0;
 
     // session过期
-    public static final int SESSION_TIMEOUT = -2;
+    public static final int SESSION_TIMEOUT = 2;
 
     // 不是有效的json格式
     public static final int STATUS_INVALID_JSON = 1001;
