@@ -6,16 +6,16 @@ import java.util.Date;
 
 public class Order {
 
-    String orderUUID;
-    String userUUID;
-    String fileName;
-    Double cost;
-    int status;
-    Date createTime;
-    Date doneTime;
-    boolean color;
-    boolean duplex;
-    String phoneNum;
+    private String orderUUID;
+    private String userUUID;
+    private String fileName;
+    private Double cost;
+    private int status;
+    private Date createTime;
+    private Date doneTime;
+    private boolean color;
+    private boolean duplex;
+    private String phoneNum;
 
     public Order() {
     }

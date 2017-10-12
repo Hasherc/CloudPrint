@@ -48,7 +48,6 @@
     </div>
 </nav>
 
-
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/resources/js/global.js"></script>
