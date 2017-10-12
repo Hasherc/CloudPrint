@@ -1,151 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="CloudPrint@localhost">
+<dataSource name="@localhost">
   <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
     <root id="1"/>
-    <schema id="2" parent="1" name="CloudPrint">
+    <schema id="2" parent="1" name="information_schema">
+      <Current>1</Current>
+    </schema>
+    <schema id="3" parent="1" name="mysql"/>
+    <schema id="4" parent="1" name="performance_schema"/>
+    <schema id="5" parent="1" name="sys"/>
+    <schema id="6" parent="1" name="sakila"/>
+    <schema id="7" parent="1" name="world"/>
+    <schema id="8" parent="1" name="cloudprint">
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
-    <schema id="3" parent="1" name="information_schema"/>
-    <schema id="4" parent="1" name="mysql"/>
-    <schema id="5" parent="1" name="performance_schema"/>
-    <schema id="6" parent="1" name="sys"/>
-    <table id="7" parent="2" name="file"/>
-    <table id="8" parent="2" name="order"/>
-    <table id="9" parent="2" name="u_auth"/>
-    <table id="10" parent="2" name="u_info"/>
-    <column id="11" parent="7" name="f_uuid">
+    <table id="9" parent="8" name="file"/>
+    <table id="10" parent="8" name="order"/>
+    <table id="11" parent="8" name="u_auth"/>
+    <table id="12" parent="8" name="u_info"/>
+    <column id="13" parent="9" name="f_uuid">
       <Position>1</Position>
       <DataType>varchar(32)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="12" parent="7" name="file_name">
+    <column id="14" parent="9" name="file_name">
       <Position>2</Position>
       <DataType>varchar(100)|0</DataType>
     </column>
-    <column id="13" parent="7" name="file_path">
+    <column id="15" parent="9" name="file_path">
       <Position>3</Position>
       <DataType>varchar(200)|0</DataType>
     </column>
-    <column id="14" parent="7" name="file_size">
+    <column id="16" parent="9" name="file_size">
       <Position>4</Position>
       <DataType>bigint(20)|0</DataType>
     </column>
-    <column id="15" parent="7" name="uuid">
+    <column id="17" parent="9" name="uuid">
       <Position>5</Position>
       <DataType>varchar(32)|0</DataType>
     </column>
-    <column id="16" parent="7" name="file_type">
+    <column id="18" parent="9" name="file_type">
       <Position>6</Position>
       <DataType>varchar(10)|0</DataType>
     </column>
-    <column id="17" parent="7" name="upload_time">
+    <column id="19" parent="9" name="upload_time">
       <Position>7</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <key id="18" parent="7" name="PRIMARY">
+    <key id="20" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>f_uuid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="19" parent="8" name="order_uuid">
+    <column id="21" parent="10" name="order_uuid">
       <Position>1</Position>
       <DataType>varchar(32)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="20" parent="8" name="u_uuid">
+    <column id="22" parent="10" name="u_uuid">
       <Position>2</Position>
       <DataType>varchar(32)|0</DataType>
     </column>
-    <column id="21" parent="8" name="file_name">
+    <column id="23" parent="10" name="file_name">
       <Position>3</Position>
       <DataType>varchar(100)|0</DataType>
     </column>
-    <column id="22" parent="8" name="cost">
+    <column id="24" parent="10" name="cost">
       <Position>4</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="23" parent="8" name="phone_Num">
+    <column id="25" parent="10" name="phone_Num">
       <Position>5</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="24" parent="8" name="done_time">
+    <column id="26" parent="10" name="done_time">
       <Position>6</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <column id="25" parent="8" name="create_time">
+    <column id="27" parent="10" name="create_time">
       <Position>7</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <column id="26" parent="8" name="color">
+    <column id="28" parent="10" name="color">
       <Position>8</Position>
       <DataType>tinyint(4)|0</DataType>
     </column>
-    <column id="27" parent="8" name="duplex">
+    <column id="29" parent="10" name="duplex">
       <Position>9</Position>
       <DataType>tinyint(4)|0</DataType>
     </column>
-    <column id="28" parent="8" name="status">
+    <column id="30" parent="10" name="status">
       <Position>10</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <key id="29" parent="8" name="PRIMARY">
+    <key id="31" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>order_uuid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="30" parent="9" name="u_uuid">
+    <column id="32" parent="11" name="u_uuid">
       <Position>1</Position>
       <DataType>varchar(32)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="31" parent="9" name="email">
+    <column id="33" parent="11" name="email">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="32" parent="9" name="password">
+    <column id="34" parent="11" name="password">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="33" parent="9" name="phone_num">
+    <column id="35" parent="11" name="phone_num">
       <Position>4</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="34" parent="9" name="last_login_time">
+    <column id="36" parent="11" name="last_login_time">
       <Position>5</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <column id="35" parent="9" name="status">
+    <column id="37" parent="11" name="status">
       <Position>6</Position>
       <DataType>bit(1)|0</DataType>
     </column>
-    <key id="36" parent="9" name="PRIMARY">
+    <key id="38" parent="11" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>u_uuid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="37" parent="10" name="uuid">
+    <column id="39" parent="12" name="uuid">
       <Position>1</Position>
       <DataType>varchar(32)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="38" parent="10" name="nickName">
+    <column id="40" parent="12" name="nickName">
       <Position>2</Position>
       <DataType>varchar(30)|0</DataType>
     </column>
-    <column id="39" parent="10" name="email">
+    <column id="41" parent="12" name="email">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="40" parent="10" name="phone_Num">
+    <column id="42" parent="12" name="phone_Num">
       <Position>4</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="41" parent="10" name="balance">
+    <column id="43" parent="12" name="balance">
       <Position>5</Position>
       <DataType>float|0</DataType>
     </column>
-    <key id="42" parent="10" name="PRIMARY">
+    <key id="44" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>uuid</ColNames>
       <Primary>1</Primary>

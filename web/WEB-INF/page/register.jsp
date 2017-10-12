@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>云打印 </title>
+    <title>Print + </title>
 
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
@@ -27,7 +27,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">CloudPrint</a>
+            <a class="navbar-brand" href="/">Print +</a>
             <a class="navbar-brand" href="/"><img width="100"
                                                   src="/resources/images/7c96b27898c256a55929b81d7830e03c.png"
                                                   alt="Logo white"></a>
@@ -54,33 +54,38 @@
                     <label for="register_name" class="col-sm-2 control-label">
                         姓名
                     </label>
-                    <div class="col-sm-10">
-                        <input class="form-control" id="register_name" name="nickName"/>
+                    <div class="col-sm-6">
+                        <input class="form-control" id="register_name" name="nickName" />
                     </div>
+                    <div class="col-sm-4 help-block" style="font-size: smaller">请输入您的真实姓名</div>
+
                 </div>
                 <div class="form-group">
                     <label for="register_phoneNum" class="col-sm-2 control-label">
                         手机号
                     </label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-6">
                         <input class="form-control" id="register_phoneNum" name="phoneNum"/>
                     </div>
+                    <div class="col-sm-4 help-block" style="font-size: smaller">请输入您的13位手机号码</div>
                 </div>
                 <div class="form-group">
                     <label for="register_password" class="col-sm-2 control-label">
                         密码
                     </label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-6">
                         <input type="password" class="form-control" id="register_password" name="password"/>
                     </div>
+                    <div class="col-sm-4 help-block" style="font-size: smaller">以字母开头，长度在6~18之间，只能包含字符、数字和下划线。</div>
                 </div>
                 <div class="form-group">
                     <label for="repeat_password" class="col-sm-2 control-label">
                         再次输入密码
                     </label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-6">
                         <input type="password" class="form-control" id="repeat_password" name="password"/>
                     </div>
+                    <div class="col-sm-4 help-block" style="font-size: smaller"> 再次输入密码以确认</div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
@@ -100,5 +105,6 @@
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script src="/resources/js/user.js"></script>
+
 </body>
 </html>

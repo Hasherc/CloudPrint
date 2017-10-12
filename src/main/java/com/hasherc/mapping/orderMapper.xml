@@ -19,7 +19,7 @@
 
 
     <delete id="deleteOrder">
-        DELETE FROM order WHERE order_uuid = #{orderUUID, jdbcType=VARCHAR}
+        DELETE FROM cloudprint.order WHERE order_uuid = #{orderUUID, jdbcType=VARCHAR}
     </delete>
 
 

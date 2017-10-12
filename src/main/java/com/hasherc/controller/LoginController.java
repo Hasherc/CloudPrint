@@ -57,9 +57,8 @@ public class LoginController {
     @ResponseBody
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@RequestBody String registerBody) {
-        String result = userService.register(registerBody);
-        System.out.println(result);
-        return result;
+
+        return userService.register(registerBody);
 
     }
 

@@ -2,7 +2,12 @@
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring-mvc.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring-mybatis.xml</file>
+        </fileset>
+      </configuration>
     </facet>
     <facet type="web" name="Web">
       <configuration>
@@ -30,9 +35,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat" level="application_server_libraries" />
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.5.23" level="application_server_libraries" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
-    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17-atlassian-1" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.25" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.16" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
@@ -73,7 +78,5 @@
     <orderEntry type="library" name="Maven: org.openoffice:jurt:2.3.0" level="project" />
     <orderEntry type="library" name="Maven: org.openoffice:ridl:2.3.0" level="project" />
     <orderEntry type="library" name="Maven: org.openoffice:unoil:2.3.0" level="project" />
-    <orderEntry type="library" name="jquery" level="application" />
-    <orderEntry type="library" name="bootstrap" level="application" />
   </component>
 </module>

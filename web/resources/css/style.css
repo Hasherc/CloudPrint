@@ -73,3 +73,6 @@ html, body {width:100%;height:100%;} /*非常重要的样式让背景图片100%�
     border-radius: 50px;
     text-align: center;
 }
+.register-help-block{
+    font-size: 1em;
+}

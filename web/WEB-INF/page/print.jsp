@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>云打印</title>
+    <title>Print +</title>
 
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <title></title>
@@ -26,7 +26,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">CloudPrint</a>
+            <a class="navbar-brand" href="/">Print +</a>
             <a class="navbar-brand" href="/"><img width="100" src="/resources/images/7c96b27898c256a55929b81d7830e03c.png"alt="Logo white"></a>
 
         </div>

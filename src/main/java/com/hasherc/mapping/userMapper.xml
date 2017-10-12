@@ -64,7 +64,7 @@
     </insert>
     <insert id="insertUserInfo" parameterType="userInfo">
         insert into
-        u_info (
+        cloudprint.u_info (
         uuid,
         nickname,
         email,
