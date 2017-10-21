@@ -10,13 +10,13 @@
 
     <title>Print + </title>
 
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <title></title>
     <link rel="stylesheet" href="/resources/css/style.css">
 
 </head>
-<body background="/resources/images/25076907_1377825550765.jpg">
+<body>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container ">
         <div class="navbar-default ">
@@ -50,42 +50,45 @@
             <div id="notice" class="alert alert-warning" style="display: none" id="userNotice">
             </div>
             <form id="register" class="form-horizontal" role="form">
-                <div class="form-group">
+                <div class="form-group" >
                     <label for="register_name" class="col-sm-2 control-label">
                         姓名
                     </label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus"
+                         data-content="请输入您的真实姓名">
                         <input class="form-control" id="register_name" name="nickName" />
                     </div>
-                    <div class="col-sm-4 help-block" style="font-size: smaller">请输入您的真实姓名</div>
+
 
                 </div>
                 <div class="form-group">
                     <label for="register_phoneNum" class="col-sm-2 control-label">
                         手机号
                     </label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus"
+                         data-content="请输入您的13位手机号码">
                         <input class="form-control" id="register_phoneNum" name="phoneNum"/>
                     </div>
-                    <div class="col-sm-4 help-block" style="font-size: smaller">请输入您的13位手机号码</div>
+
                 </div>
                 <div class="form-group">
                     <label for="register_password" class="col-sm-2 control-label">
                         密码
                     </label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus"
+                         data-content="以字母开头，长度在6~18之间，只能包含字符、数字和下划线">
                         <input type="password" class="form-control" id="register_password" name="password"/>
                     </div>
-                    <div class="col-sm-4 help-block" style="font-size: smaller">以字母开头，长度在6~18之间，只能包含字符、数字和下划线。</div>
                 </div>
                 <div class="form-group">
                     <label for="repeat_password" class="col-sm-2 control-label">
                         再次输入密码
                     </label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus"
+                         data-content="再次输入密码以确认">
                         <input type="password" class="form-control" id="repeat_password" name="password"/>
                     </div>
-                    <div class="col-sm-4 help-block" style="font-size: smaller"> 再次输入密码以确认</div>
+
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
@@ -102,8 +105,8 @@
 
 
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
+<script src="/resources/js/global.js"></script>
 <script src="/resources/js/user.js"></script>
 
 </body>

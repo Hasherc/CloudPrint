@@ -5,7 +5,7 @@
 <mapper namespace="com.hasherc.dao.UserDao">
 
     <resultMap id="userAuth" type="com.hasherc.entity.UserAuth">
-        <id column="u_uuid" jdbcType="VARCHAR" property="uuid"/>
+        <id column="u_uuid" jdbcType="VARCHAR" property="userUuid"/>
         <result column="email" jdbcType="VARCHAR" property="email"/>
         <result column="password" jdbcType="VARCHAR" property="password"/>
         <result column="phone_num" jdbcType="VARCHAR" property="phoneNum"/>
@@ -13,20 +13,19 @@
         <result column="status" jdbcType="BIT" property="status"/>
     </resultMap>
     <resultMap id="userInfo" type="com.hasherc.entity.UserInfo">
-        <id column="uuid" jdbcType="VARCHAR" property="uuid"/>
+        <id column="u_uuid" jdbcType="VARCHAR" property="userUuid"/>
         <result column="nickName" jdbcType="VARCHAR" property="nickName"/>
         <result column="email" jdbcType="VARCHAR" property="email"/>
         <result column="phone_Num" jdbcType="VARCHAR" property="phoneNum"/>
         <result column="balance" jdbcType="FLOAT" property="balance"/>
         <result column="address" jdbcType="VARCHAR" property="address"/>
         <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime"/>
-
     </resultMap>
 
     <update id="insertLoginTime" parameterType="userAuth">
         UPDATE CloudPrint.u_auth
         SET last_login_time = CURRENT_TIMESTAMP
-        WHERE u_uuid = #{uuid, jdbcType=VARCHAR}
+        WHERE u_uuid = #{userUuid, jdbcType=VARCHAR}
     </update>
 
     <select id="findAuthStatusByPhoneNum" resultType="int">
@@ -54,7 +53,7 @@
         status
         )
         values (
-        #{uuid,jdbcType=VARCHAR},
+        #{userUuid,jdbcType=VARCHAR},
         #{email,jdbcType=VARCHAR},
         #{phoneNum,jdbcType=VARCHAR},
         #{password,jdbcType=VARCHAR},
@@ -65,14 +64,14 @@
     <insert id="insertUserInfo" parameterType="userInfo">
         insert into
         cloudprint.u_info (
-        uuid,
+        u_uuid,
         nickname,
         email,
         phone_num,
         balance
         )
         values (
-        #{uuid,jdbcType=VARCHAR},
+        #{userUuid,jdbcType=VARCHAR},
         #{nickName,jdbcType=VARCHAR},
         #{email,jdbcType=VARCHAR},
         #{phoneNum,jdbcType=VARCHAR},

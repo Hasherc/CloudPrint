@@ -4,7 +4,7 @@ public class OrderConsts {
 
     public static final int UNPAID = 0;
     public static final int PAID = 1;
-    public static final int UNPrint = 2;
+    public static final int UN_PRINT = 2;
     public static final int DONE = 3;
     // 黑白单面打印单价
     private static final double SINGLE_BLACK_PRINT_ONE_PAGE_PRICE = 0.1;

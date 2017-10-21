@@ -1,4 +1,4 @@
-package Util;
+package util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,18 +16,18 @@ public class RegexUtil {
 
 
     public static boolean validEmail(String param) {
-        Pattern regex_email = Pattern.compile(REGEX_EMAIL);
+        Pattern regexEmail = Pattern.compile(REGEX_EMAIL);
 
-        Matcher matcher = regex_email.matcher(param);
+        Matcher matcher = regexEmail.matcher(param);
 
         return matcher.matches();
 
     }
 
     public static boolean validPhone(String param) {
-        Pattern regex_phone = Pattern.compile(REGEX_PHONE);
+        Pattern regexPhone = Pattern.compile(REGEX_PHONE);
 
-        Matcher matcher = regex_phone.matcher(param);
+        Matcher matcher = regexPhone.matcher(param);
         return matcher.matches();
 
     }

@@ -45,4 +45,5 @@ public class StatusCode {
     public static final int STATUS__UNPAID_ORDER_EXIST = 1010;
 
 
+
 }

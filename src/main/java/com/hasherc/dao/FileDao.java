@@ -14,9 +14,9 @@ import java.util.List;
 public interface FileDao {
     int insertFile(FileEntity file);
 
-    int deleteFile(@Param("uuid") String uuid, @Param("fileName") String fileName);
+    int deleteFile(@Param("userUuid") String userUuid, @Param("fileName") String fileName);
 
-    List<String> getFileList(@Param("uuid") String uuid);
+    List<String> getFileList(@Param("userUuid") String userUuid);
 
-    int getFilePage(@Param("uuid") String uuid, @Param("fileName") String fileName);
+    int getFilePage(@Param("userUuid") String uuid, @Param("fileName") String fileName);
 }

@@ -1,7 +1,7 @@
 package com.hasherc.service.impl;
 
-import Util.JsonUtil;
-import Util.UUIDUtil;
+import util.JsonUtil;
+import util.UUIDUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -28,12 +28,15 @@ public class OrderServiceImpl implements OrderService {
     OrderDao orderDao;
 
     @Override
-    public String placeOrder(String uuid, String orderJson) {
+    public String placeOrder(String userUuid, String orderJson) {
         //如果有未付款订单，则不允许下单
-        if (orderDao.finUndoOrder(uuid).get(0) <= 1)
+        if (orderDao.finUndoOrder(userUuid).get(0) <= 1) {
             return JsonUtil.resultToJson(StatusCode.STATUS__UNPAID_ORDER_EXIST);
+        }
         //检测json格式
-        if (!JsonUtil.valid(orderJson)) return JsonUtil.resultToJson(StatusCode.STATUS_INVALID_JSON);
+        if (!JsonUtil.valid(orderJson)) {
+            return JsonUtil.resultToJson(StatusCode.STATUS_INVALID_JSON);
+        }
         //json字符串转为List
         JSONArray orderListJson = JSONArray.parseArray(orderJson);
         List<Order> orderList = new ArrayList<>();
@@ -45,9 +48,9 @@ public class OrderServiceImpl implements OrderService {
         //组装订单，一个订单里每一个文件对应一条数据库记录，同订单UUID相同
         String orderUUID = UUIDUtil.getUUID();
         for (Order order : orderList) {
-            order.setUserUUID(uuid);
+            order.setUserUUID(userUuid);
             order.setOrderUUID(orderUUID);
-            int page = fileDao.getFilePage(uuid, order.getFileName());
+            int page = fileDao.getFilePage(userUuid, order.getFileName());
             double cost = OrderConsts.calculatePrice(page, order.isColor(), order.isDuplex());
             order.setCost(cost);
             order.setStatus(OrderConsts.UNPAID);

@@ -1,4 +1,4 @@
-package Util.toPDF;
+package util.toPDF;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.Font;

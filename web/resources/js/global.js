@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $.ajax({
         type: "post",
-        url: "checkLogin",
+        url: "/checkLogin",
         dataType: "json",
         contentType: "text/plain",
         success: function (result) {

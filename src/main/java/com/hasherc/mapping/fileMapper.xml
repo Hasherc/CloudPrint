@@ -5,7 +5,8 @@
 <mapper namespace="com.hasherc.dao.FileDao">
     <resultMap id="file" type="com.hasherc.entity.FileEntity">
         <id column="f_uuid" jdbcType="VARCHAR" property="fileUuid"/>
-        <result column="uuid" jdbcType="VARCHAR" property="uuid"/>
+        <result column="u_uuid" jdbcType="VARCHAR" property="userUuid"/>
+        <result column="order_uuid" jdbcType="VARCHAR" property="orderUuid"/>
         <result column="file_name" jdbcType="VARCHAR" property="fileName"/>
         <result column="file_path" jdbcType="VARCHAR" property="filePath"/>
         <result column="file_size" jdbcType="BIGINT" property="fileSize"/>
@@ -14,7 +15,7 @@
     </resultMap>
 
     <select id="getFilePage" resultType="java.lang.Integer">
-        SELECT cloudprint.file_pages FROM CloudPrint.file WHERE uuid=#{uuid, jdbcType=VARCHAR} AND
+        SELECT cloudprint.file_pages FROM CloudPrint.file WHERE u_uuid=#{userUuid, jdbcType=VARCHAR} AND
         file_name=#{fileName, jdbcType=VARCHAR}
     </select>
 
@@ -22,31 +23,33 @@
         insert into
         CloudPrint.file (
         f_uuid,
-        uuid,
+        u_uuid,
         file_name,
         file_path,
         file_size,
         file_type,
-        upload_time
+        upload_time,
+        order_uuid
         )
         values (
         #{fileUuid,jdbcType=VARCHAR},
-        #{uuid,jdbcType=VARCHAR},
+        #{userUuid,jdbcType=VARCHAR},
         #{fileName,jdbcType=VARCHAR},
         #{filePath,jdbcType=VARCHAR},
         #{fileSize,jdbcType=BIGINT},
         #{fileType,jdbcType=VARCHAR},
-        CURRENT_TIMESTAMP
+        CURRENT_TIMESTAMP,
+        #{orderUuid,jdbcType=VARCHAR}
         )
     </insert>
     <delete id="deleteFile">
-        DELETE FROM cloudprint.file WHERE uuid = #{uuid, jdbcType=VARCHAR} and file_name = #{fileName, jdbcType=VARCHAR}
+        DELETE FROM cloudprint.file WHERE u_uuid = #{userUuid, jdbcType=VARCHAR} and file_name = #{fileName, jdbcType=VARCHAR}
     </delete>
     <select id="getFileList" resultType="java.lang.String">
         SELECT
         file_name
         FROM cloudprint.file
         WHERE
-        uuid = #{uuid, jdbcType = VARCHAR}
+        u_uid = #{userUuid, jdbcType = VARCHAR}
     </select>
 </mapper>

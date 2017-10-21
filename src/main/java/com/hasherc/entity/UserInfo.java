@@ -3,7 +3,7 @@ package com.hasherc.entity;
 import com.alibaba.fastjson.JSON;
 
 public class UserInfo {
-    private String uuid;
+    private String userUuid;
     private String nickName;
     private String phoneNum;
     private String email;
@@ -26,13 +26,15 @@ public class UserInfo {
         this.nickName = nickName;
     }
 
-    public String getUuid() {
-        return uuid;
+    public String getUserUuid() {
+        return userUuid;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setUserUuid(String userUuid) {
+        this.userUuid = userUuid;
     }
+
+
 
     public String getPhoneNum() {
         return phoneNum;

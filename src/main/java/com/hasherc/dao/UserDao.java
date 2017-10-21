@@ -20,6 +20,6 @@ public interface UserDao {
 
     int insertUserInfo(UserInfo userInfo);
 
-    void insertLoginTime(String uuid);
+    void insertLoginTime(String userUuid);
 
 }

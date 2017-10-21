@@ -1,6 +1,6 @@
 package com.hasherc.controller;
 
-import Util.JsonUtil;
+import util.JsonUtil;
 import com.hasherc.consts.StatusCode;
 import com.hasherc.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +20,25 @@ public class OrderController {
     @ResponseBody
     @RequestMapping("/placeOrder")
     public String placeOrder(String orderJson, HttpSession session) {
-        String uuid = session.getAttribute("uuid").toString();
-        if (uuid == null) return JsonUtil.resultToJson(StatusCode.SESSION_TIMEOUT);
-        return orderService.placeOrder(uuid, orderJson);
+        String userUuid = session.getAttribute("userUuid").toString();
+        if (userUuid == null) {
+            return JsonUtil.resultToJson(StatusCode.SESSION_TIMEOUT);
+        }
+        return orderService.placeOrder(userUuid, orderJson);
     }
 
     @ResponseBody
     @RequestMapping("/getUnPaidOrder")
     public String getOrder(HttpSession session) {
-        String uuid = session.getAttribute("uuid").toString();
-        if (uuid == null) return JsonUtil.resultToJson(StatusCode.SESSION_TIMEOUT);
-        return orderService.getUnPaidOrder(uuid);
+        String userUuid = session.getAttribute("userUuid").toString();
+        if ( userUuid == null) {
+            return JsonUtil.resultToJson(StatusCode.SESSION_TIMEOUT);
+        }
+        return orderService.getUnPaidOrder(userUuid);
+    }
+    @RequestMapping("/toOrderPage")
+    public String toOrderPage(){
+        return "order";
     }
 
 }

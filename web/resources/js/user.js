@@ -151,5 +151,8 @@ $(document).keyup(function (event) {
         $("#login_button").trigger("click");
     }
 });
+$(function (){
+    $("[data-toggle='popover']").popover();
+});
 
 

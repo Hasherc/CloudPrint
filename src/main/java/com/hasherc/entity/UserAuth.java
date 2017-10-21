@@ -13,7 +13,7 @@ public class UserAuth implements Serializable {
 
     private static final long serialVersionUID = -6680722794850378666L;
 
-    private String uuid;
+    private String userUuid;
     private String email;
     private String phoneNum;
     private String password;
@@ -31,12 +31,12 @@ public class UserAuth implements Serializable {
         this.status = status;
     }
 
-    public String getUuid() {
-        return uuid;
+    public String getUserUuid() {
+        return userUuid;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setUserUuid(String userUuid) {
+        this.userUuid = userUuid;
     }
 
     @Override

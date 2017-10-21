@@ -24,7 +24,7 @@
 
 
     <select id="finUndoOrder" resultType="Integer">
-        SELECT status FROM CloudPrint.order WHERE u_uuid = #{uuid,jdbcType=VARCHAR}
+        SELECT status FROM CloudPrint.order WHERE u_uuid = #{userUuid,jdbcType=VARCHAR}
     </select>
 
 
@@ -33,7 +33,7 @@
         CloudPrint.order (
         order_uuid,
         u_uuid,
-        file_name,
+        f_name,
         cost,
         status,
         done_time,
@@ -56,7 +56,7 @@
         )
     </insert>
     <select id="getUnPaidOrder" resultMap="order">
-        SELECT * FROM CloudPrint.order WHERE u_uuid = #{uuid, jdbcType=VARCHAR} AND status &lt;= 1
+        SELECT * FROM CloudPrint.order WHERE u_uuid = #{userUuid, jdbcType=VARCHAR} AND status &lt;= 1
     </select>
 
 </mapper>

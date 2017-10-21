@@ -1,4 +1,4 @@
-package Util;
+package util;
 
 import com.hasherc.entity.FileEntity;
 import org.apache.commons.io.FileExistsException;
@@ -21,7 +21,9 @@ public class FileUtil {
 
 
     public static String getFileType(String fileName) {
-        if (!fileName.contains(".")) return "";
+        if (!fileName.contains(".")) {
+            return "";
+        }
         String fileType = fileName.substring(fileName.lastIndexOf(".") + 1);
         return fileType;
     }
@@ -50,32 +52,33 @@ public class FileUtil {
     /**
      * 创建用户文件夹
      *
-     * @param uuid 用户uuid
+     * @param userUuid 用户uuid
      * @return 创建后的文件夹的绝对路径
      */
-    public static void createUserDir(String uuid) {
-        File file = new File(getRootDirPath() + File.separator + uuid);
+    public static void createUserDir(String userUuid) {
+        File file = new File(getRootDirPath() + File.separator + userUuid);
         file.mkdirs();
     }
 
-    public static String getUserDir(String uuid) {
-        return getRootDirPath() + File.separator + uuid;
+    public static String getUserDir(String userUuid) {
+        return getRootDirPath() + File.separator + userUuid;
 
     }
 
     /**
      * 将文件存到硬盘
      *
-     * @param uuid 文件所属用户uuid
+     * @param userUuid 文件所属用户uuid
      * @param file 文件实体
      * @return filename：文件原始名 filePath：文件在硬盘路径及更改过的文件名
      * @throws IOException
      */
-    public static FileEntity uploadFile(String uuid, MultipartFile file) throws FileExistsException {
+    public static FileEntity uploadFile(String userUuid, MultipartFile file) throws FileExistsException {
 
         String fileName = file.getOriginalFilename();
-        File tempFile = new File(getUserDir(uuid), String.valueOf(fileName));
-
+        File tempFile = new File(getUserDir(userUuid), String.valueOf(fileName));
+        System.out.println("filename:" + fileName);
+        createUserDir(userUuid);
         if (tempFile.exists()) {
             throw new FileExistsException();
         }
@@ -85,11 +88,14 @@ public class FileUtil {
             file.transferTo(tempFile);
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
 
 
+
+
         FileEntity fileEntity = new FileEntity();
-        fileEntity.setUuid(uuid);
+        fileEntity.setUserUuid(userUuid);
         fileEntity.setFileName(fileName);
         fileEntity.setFilePath(tempFile.getAbsolutePath());
         fileEntity.setFileSize(file.getSize());

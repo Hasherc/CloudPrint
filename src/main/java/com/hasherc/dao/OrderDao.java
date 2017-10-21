@@ -11,7 +11,7 @@ public interface OrderDao {
 
     int deleteOrder(String orderUUID);
 
-    List<Integer> finUndoOrder(String uuid);
+    List<Integer> finUndoOrder(String userUuid);
 
-    List<Order> getUnPaidOrder(String uuid);
+    List<Order> getUnPaidOrder(String userUuid);
 }

@@ -1,7 +1,7 @@
 package com.hasherc.service;
 
 public interface OrderService {
-    String placeOrder(String uuid, String orderJson);
+    String placeOrder(String userUuid, String orderJson);
 
-    String getUnPaidOrder(String uuid);
+    String getUnPaidOrder(String userUuid);
 }

@@ -9,7 +9,7 @@
 
     <title>Print + </title>
 
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <title></title>
     <link rel="stylesheet" href="/resources/css/style.css">
@@ -17,7 +17,7 @@
 
 
 </head>
-<body background="/resources/images/25076907_1377825550765.jpg">
+<body >
 <nav class="navbar navbar-default" role="navigation">
     <div class="container ">
         <div class="navbar-default ">
@@ -92,8 +92,7 @@
 
 
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 <script src="/resources/js/global.js"></script>
 <script src="/resources/js/user.js"></script>
 

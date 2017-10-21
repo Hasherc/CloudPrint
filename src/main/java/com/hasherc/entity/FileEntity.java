@@ -10,7 +10,8 @@ import java.util.Date;
  */
 public class FileEntity {
 
-    private String uuid;
+    private String userUuid;
+    private String orderUuid;
     private String fileUuid;
     private String fileName;
     private String filePath;
@@ -26,6 +27,15 @@ public class FileEntity {
     public String toString() {
         return JSON.toJSONString(this);
     }
+
+    public String getOrderUuid() {
+        return orderUuid;
+    }
+
+    public void setOrderUuid(String orderUuid) {
+        this.orderUuid = orderUuid;
+    }
+
 
     public int getFilePages() {
         return filePages;
@@ -67,12 +77,12 @@ public class FileEntity {
         this.fileType = fileType;
     }
 
-    public String getUuid() {
-        return uuid;
+    public String getUserUuid() {
+        return userUuid;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setUserUuid(String userUuid) {
+        this.userUuid = userUuid;
     }
 
     public String getFileName() {

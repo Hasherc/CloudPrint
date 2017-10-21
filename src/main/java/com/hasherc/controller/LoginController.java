@@ -1,6 +1,7 @@
 package com.hasherc.controller;
 
-import Util.JsonUtil;
+import com.hasherc.consts.StringConsts;
+import util.JsonUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.hasherc.consts.StatusCode;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Enumeration;
+import java.util.HashMap;
 
 /**
  * 处理用户登录注册
@@ -28,9 +30,13 @@ public class LoginController {
     private UserService userService;
 
     @RequestMapping("/")
-    public String LoginRegister(HttpSession session) {
-        if (session.getAttribute("uuid") == null) return "main";
-        else return "main";
+    public String loginRegister(HttpSession session) {
+
+        if (session.getAttribute("userUuid") == null) {
+            return "main";
+        } else {
+            return "main";
+        }
 
     }
     @RequestMapping("/printSelect")
@@ -78,11 +84,12 @@ public class LoginController {
 
         JSONObject resultObj = JSON.parseObject(result);
 
-        if (!resultObj.containsKey("uuid")) {
+        if (!resultObj.containsKey("userUuid")) {
             return resultObj.toJSONString();
         }
-        request.getSession().setAttribute("uuid", resultObj.getString("uuid"));
-
+        request.getSession().setAttribute(StringConsts.userUuid, resultObj.getString("userUuid"));
+        request.getSession().setAttribute(StringConsts.fileCount,0);
+        request.getSession().setAttribute(StringConsts.fileSessions,new HashMap<>());
         return JsonUtil.resultToJson(StatusCode.GLOBAL_SUCCESS);
 
     }
@@ -104,10 +111,12 @@ public class LoginController {
     @ResponseBody
     @RequestMapping("/checkLogin")
     public String checkLogin(HttpSession session) {
-        if (session.getAttribute("uuid") == null)
-            return JsonUtil.resultToJson(0);
-        else
-            return JsonUtil.resultToJson(1);
+        String userUUuid = (String) session.getAttribute(StringConsts.userUuid);
+        if (userUUuid == null) {
+            return JsonUtil.resultToJson(StatusCode.GLOBAL_FAIL);
+        } else {
+            return JsonUtil.resultToJson(StatusCode.GLOBAL_SUCCESS);
+        }
     }
 
 }

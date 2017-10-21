@@ -1,9 +1,9 @@
 package com.hasherc.service.impl;
 
-import Util.EncryptUtil;
-import Util.FileUtil;
-import Util.JsonUtil;
-import Util.UUIDUtil;
+import util.EncryptUtil;
+import util.FileUtil;
+import util.JsonUtil;
+import util.UUIDUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.hasherc.consts.StatusCode;
@@ -39,13 +39,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public String checkLogin(String params) {
         //检测json格式
-        if (!JsonUtil.valid(params)) return JsonUtil.resultToJson(StatusCode.STATUS_INVALID_JSON);
+        if (!JsonUtil.valid(params)) {
+            return JsonUtil.resultToJson(StatusCode.STATUS_INVALID_JSON);
+        }
         //校验参数
         Map<String, String> paramsMap = new HashMap<>();
         paramsMap.put("phoneNum", "String");
         paramsMap.put("password", "String");
         JSONObject paramsObj = JSON.parseObject(params);
-        if (!JsonUtil.checkParams(paramsObj, paramsMap)) return JsonUtil.resultToJson(StatusCode.STATUS_INVALID_PARAMS);
+        if (!JsonUtil.checkParams(paramsObj, paramsMap)) {
+            return JsonUtil.resultToJson(StatusCode.STATUS_INVALID_PARAMS);
+        }
 
         String phoneNum = paramsObj.getString("phoneNum");
         //密码加密
@@ -56,14 +60,16 @@ public class UserServiceImpl implements UserService {
             return JsonUtil.resultToJson(StatusCode.GLOBAL_FAIL);
         }
         //根据手机号和密码获取用户uuid
-        String uuid = userDao.loginByPhone(phoneNum, password);
+        String userUuid = userDao.loginByPhone(phoneNum, password);
 
-        if (uuid == null) return JsonUtil.resultToJson(StatusCode.STATUS_NOT_EXIST);
+        if (userUuid == null) {
+            return JsonUtil.resultToJson(StatusCode.STATUS_NOT_EXIST);
+        }
         //更新登录时间
-        userDao.insertLoginTime(uuid);
+        userDao.insertLoginTime(userUuid);
         //组装json
         JSONObject resultObj = JsonUtil.resultToJsonObj(StatusCode.GLOBAL_SUCCESS);
-        resultObj.put("uuid", uuid);
+        resultObj.put("userUuid", userUuid);
 
         return resultObj.toJSONString();
     }
@@ -114,19 +120,19 @@ public class UserServiceImpl implements UserService {
         }
         //组装bean
         UserAuth userAuth;
-        String uuid = UUIDUtil.getUUID();
-        FileUtil.createUserDir(uuid);
+        String userUuid = UUIDUtil.getUUID();
+        FileUtil.createUserDir(userUuid);
         userAuth = new UserAuth();
         userAuth.setPhoneNum(phoneNum);
         userAuth.setPassword(password);
         userAuth.setStatus(1);
-        userAuth.setUuid(uuid);
+        userAuth.setUserUuid(userUuid);
         //插入数据库用户权限表
 
 
         //插入数据库用户信息表
         UserInfo userInfo = new UserInfo();
-        userInfo.setUuid(uuid);
+        userInfo.setUserUuid(userUuid);
         userInfo.setBalance(0);
         userInfo.setNickName(nickName);
         userInfo.setPhoneNum(phoneNum);

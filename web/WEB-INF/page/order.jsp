@@ -10,12 +10,12 @@
 
     <title>Print + </title>
 
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <title></title>
     <link rel="stylesheet" href="/resources/css/style.css">
 
 </head>
-<body background="/resources/images/25076907_1377825550765.jpg">
+<body>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container ">
         <div class="navbar-default ">
@@ -47,11 +47,124 @@
         </div>
     </div>
 </nav>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <h3 class="text-center text-primary">订单编号:
+                <span id="order_uuid"></span>
+            </h3>
+            <ul class="list-group" style="font-size: 22px;">
+                <li class="list-group-item list-inline">
+                    姓名:
+                    <div class="pull-right">
+                        <span id="order_user_name">
+                            default
+                        </span>
+                        <a class="text-muted" style="font-size: small" data-toggle="modal" data-target="#user_name_editor">
+                            编辑
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="list-group" style="font-size: 20px;">
+                <li class="list-group-item list-inline">
+                    手机号:
+                    <div class="pull-right">
+                        <span id="order_phone_num">
+                            default
+                        </span>
+                        <a class="text-muted" style="font-size: small" data-toggle="modal" data-target="#phone_num_editor">
+                            编辑
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <div class="order_file_back">
+                <div class="row">
+                    <div class="col-sm-10 text-muted">
+                        <p style="font-size: small">文件名：<span id="order_file_name_1"></span></p>
+                        <p style="font-size: small">文件类型：<span id="order_file_type_1"></span></p>
+                        <p style="font-size: small">打印方式：<span id="order_print_type_1"></span></p>
+                        <p style="font-size: small">色彩：<span id="order_print_color_1"></span></p>
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-default btn-sm">编辑</button>
+                    </div>
+                </div>
 
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            </div>
+            <div class="order_file_back" >
+                <div class="row">
+                    <div class="col-sm-10 text-muted">
+                        <p style="font-size: small">文件名：<span id="order_file_name_2"></span></p>
+                        <p style="font-size: small">文件类型：<span id="order_file_type_2"></span></p>
+                        <p style="font-size: small">打印方式：<span id="order_print_type_2"></span></p>
+                        <p style="font-size: small">色彩：<span id="order_print_color_2"></span></p>
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-default btn-sm">编辑</button>
+                    </div>
+                </div>
+            </div>
+            <div class="order_file_back">
+                <div class="row">
+                    <div class="col-sm-10 text-muted">
+                        <p style="font-size: small">文件名：<span id="order_file_name_3"></span></p>
+                        <p style="font-size: small">文件类型：<span id="order_file_type_3"></span></p>
+                        <p style="font-size: small">打印方式：<span id="order_print_type_3"></span></p>
+                        <p style="font-size: small">色彩：<span id="order_print_color_3"></span></p>
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-default btn-sm">编辑</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="user_name_editor" tabindex="-1" role="dialog" aria-labelledby="ModalLabel_one" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="ModalLabel_one">请输入您的姓名</h4>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control" id="user_name" value="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="not_commit_name">关闭</button>
+                    <button class="btn btn-default" id="commit_name">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="phone_num_editor" tabindex="-1" role="dialog" aria-labelledby="ModalLabel_two" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="ModalLabel_two">
+                        请输入您的联系方式
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control"  id="phone_num">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="not_commit_phone">关闭</button>
+                    <button class="btn btn-default" id="commit_phone">确定</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/resources/js/jquery-3.2.1.min.js"></script>
+<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 <script src="/resources/js/global.js"></script>
 <script src="/resources/js/user.js"></script>
-
+<script src="/resources/js/order.js"></script>
 </body>
 </html>

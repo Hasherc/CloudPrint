@@ -1,4 +1,4 @@
-package Util;
+package util;
 
 import java.security.MessageDigest;
 
@@ -15,12 +15,12 @@ public class EncryptUtil {
      */
     private final static String KEY_SHA = "SHA";
     private final static String KEY_SHA1 = "SHA-1";
-
     /**
      * 全局数组
      */
-    private final static String[] hexDigits = {"0", "1", "2", "3", "4", "5",
+    private final static String[] HEXDIGITS = {"0", "1", "2", "3", "4", "5",
             "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+
 
     /**
      * 构造函数
@@ -55,7 +55,7 @@ public class EncryptUtil {
      */
     public static String encryptSHA(String data) throws Exception {
         // 验证传入的字符串
-        if (data == null || data.equals("")) {
+        if (data == null || "".equals(data)) {
             return "";
         }
         // 创建具有指定算法名称的信息摘要
@@ -82,7 +82,7 @@ public class EncryptUtil {
         }
         int m = ret / 16;
         int n = ret % 16;
-        return hexDigits[m] + hexDigits[n];
+        return HEXDIGITS[m] + HEXDIGITS[n];
     }
 
     /**
