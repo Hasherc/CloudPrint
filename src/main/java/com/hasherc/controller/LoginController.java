@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.StringReader;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 
@@ -87,9 +89,14 @@ public class LoginController {
         if (!resultObj.containsKey("userUuid")) {
             return resultObj.toJSONString();
         }
+        ArrayList fileNames = new ArrayList(3);
+        ArrayList fileUuids = new ArrayList(3);
+        HashMap<String, ArrayList> fileSessions = new HashMap<>(2);
+        fileSessions.put("fileNames", fileNames);
+        fileSessions.put("fileUuids", fileUuids);
         request.getSession().setAttribute(StringConsts.userUuid, resultObj.getString("userUuid"));
         request.getSession().setAttribute(StringConsts.fileCount,0);
-        request.getSession().setAttribute(StringConsts.fileSessions,new HashMap<>());
+        request.getSession().setAttribute(StringConsts.fileSessions,fileSessions);
         return JsonUtil.resultToJson(StatusCode.GLOBAL_SUCCESS);
 
     }

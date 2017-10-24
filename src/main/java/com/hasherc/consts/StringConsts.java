@@ -8,8 +8,8 @@ package com.hasherc.consts;
  * Time: 下午4:15
  */
 public class StringConsts {
-    public static final String userUuid = "userUuid";
-    public static final String fileSessions = "fileSessions";
-    public static final String fileCount = "fileCount";
-    public static final String orderUuid = "orderUuid";
+    public static String userUuid = "userUuid";
+    public static String fileSessions = "fileSessions";
+    public static String fileCount = "fileCount";
+    public static String orderUuid = "orderUuid";
 }

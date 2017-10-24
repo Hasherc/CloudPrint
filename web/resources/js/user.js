@@ -16,7 +16,7 @@ function sendRegisterForm() {
             contentType: "text/plain",
             success: function (result) {
                 if (result.status == 1) {
-                    window.location.href = "/"
+                    window.location.href = "/printSelect"
                 }
                 else if (result.status == 1007) {
                     $("#notice").show();
@@ -46,7 +46,7 @@ function sendLoginForm() {
             contentType: "text/plain",
             success: function (result) {
                 if (result.status == 1) {
-                    window.location.href = "/"
+                    window.location.href = "/printSelect"
                 }
                 else if (result.status == 1004) {
                     $("#notice").show();

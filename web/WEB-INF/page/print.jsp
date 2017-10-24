@@ -70,12 +70,27 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <div id="notice" class="alert alert-warning" style="display: none"></div>
-                <div id="success" class="alert alert-success" style="display: none"></div>
+                <div id="success" class="alert alert-success  text-center" style="display: none"></div>
+                <div id="notice" class="alert alert-warning  text-center" style="display: none"></div>
                 <form id="document-form" class="form-horizontal" role="form" >
                     <label for="documentInputFile">上传文件</label>
                             <input type="file" id="documentInputFile" name="file">
                     <p class="help-block" id="typeHelp"></p>
+                    <div class="help-block">
+                        <p id="first_file_block" style="display: none">
+                            <span id="file_first"></span>
+                            <span class="close" id="delete_file_first">x</span>
+                        </p>
+                        <p id="second_file_block" style="display: none">
+                            <span id="file_second"></span>
+                            <span class="close" id="delete_file_second">x</span>
+                        </p>
+                        <p id="third_file_block" style="display: none">
+                            <span id="file_third"></span>
+                            <span class="close" id="delete_file_third">x</span>
+                        </p>
+                    </div>
+
                 </form>
             </div>
             <img src="/resources/images/5-121204193934-51.gif" hidden id="imgWait" >
@@ -85,6 +100,12 @@
                 <button type="button" class="btn btn-primary" id="documentSubmit">
                     提交文件
                 </button>
+                <a href="/order/toOrderPage">
+                    <button type="button" class="btn btn-success" id="toOrder" style="display: none">
+                    结算
+                    </button>
+                </a>
+
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->

@@ -1,5 +1,6 @@
 package com.hasherc.service.impl;
 
+import netscape.javascript.JSUtil;
 import util.FileUtil;
 import util.JsonUtil;
 import com.alibaba.fastjson.JSON;
@@ -29,13 +30,12 @@ public class FileServiceImpl implements FileService {
 
     @Override
 
-    public String upload(String userUuid,String orderUuid, MultipartFile file) {
+    public String upload(String userUuid,String orderUuid, String fileUuid, MultipartFile file) {
 
         FileEntity fileEntity;
-
         //文件存入硬盘
         try {
-            fileEntity = FileUtil.uploadFile(userUuid,file);
+            fileEntity = FileUtil.uploadFile(userUuid, fileUuid, file);
             if (fileEntity == null){
                 return JsonUtil.resultToJson(StatusCode.STATUS_FILE_ERROR);
             }
@@ -52,29 +52,17 @@ public class FileServiceImpl implements FileService {
             JsonUtil.resultToJson(StatusCode.STATUS_FILE_ERROR);
         }
 
-        return fileEntity.getFileUuid();
+        return JsonUtil.resultToJson(StatusCode.GLOBAL_SUCCESS);
     }
 
     @Override
-    public String deleteFile(String userUuid, String fileListJson) {
-        //检测json格式
-        if (!JsonUtil.valid(fileListJson)) {
-            return JsonUtil.resultToJson(StatusCode.STATUS_INVALID_JSON);
-        }
-
-        //将json 数组转为List
-        List<String> fileNameList = JSON.parseArray(fileListJson, String.class);
-
+    public String deleteFile(String userUuid, String fileName) {
         //获得文件所在目录
         String directroy = FileUtil.getUserDir(userUuid);
-        //遍历并删除文件
-        for (String fileName : fileNameList) {
-            //如果硬盘上文件删除成功，就将数据库文件删除
-            if (FileUtil.deleteFile(directroy + File.separator + fileName)) {
-                fileDao.deleteFile(userUuid, fileName);
-            }
+        //如果硬盘上文件删除成功，就将数据库文件删除
+        if (FileUtil.deleteFile(directroy + File.separator + fileName)) {
+            fileDao.deleteFile(userUuid, fileName);
         }
-
         return JsonUtil.resultToJson(StatusCode.GLOBAL_SUCCESS);
     }
 

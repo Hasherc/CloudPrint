@@ -15,7 +15,7 @@
     </resultMap>
 
     <select id="getFilePage" resultType="java.lang.Integer">
-        SELECT cloudprint.file_pages FROM CloudPrint.file WHERE u_uuid=#{userUuid, jdbcType=VARCHAR} AND
+        SELECT CloudPrint.file_pages FROM CloudPrint.file WHERE u_uuid=#{userUuid, jdbcType=VARCHAR} AND
         file_name=#{fileName, jdbcType=VARCHAR}
     </select>
 
@@ -43,12 +43,12 @@
         )
     </insert>
     <delete id="deleteFile">
-        DELETE FROM cloudprint.file WHERE u_uuid = #{userUuid, jdbcType=VARCHAR} and file_name = #{fileName, jdbcType=VARCHAR}
+        DELETE FROM CloudPrint.file WHERE u_uuid = #{userUuid, jdbcType=VARCHAR} and file_name = #{fileName, jdbcType=VARCHAR}
     </delete>
     <select id="getFileList" resultType="java.lang.String">
         SELECT
         file_name
-        FROM cloudprint.file
+        FROM CloudPrint.file
         WHERE
         u_uid = #{userUuid, jdbcType = VARCHAR}
     </select>

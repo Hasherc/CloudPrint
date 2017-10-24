@@ -44,6 +44,6 @@ public class StatusCode {
     //有订单未完成
     public static final int STATUS__UNPAID_ORDER_EXIST = 1010;
 
-
+    public static final int FILE_COUNT_MAX = 1011;
 
 }

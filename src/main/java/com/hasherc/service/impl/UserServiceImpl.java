@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
             return JsonUtil.resultToJson(StatusCode.STATUS_INVALID_JSON);
         }
         //校验参数
-        Map<String, String> paramsMap = new HashMap<>();
+        Map<String, String> paramsMap = new HashMap<>(5);
         paramsMap.put("phoneNum", "String");
         paramsMap.put("password", "String");
         JSONObject paramsObj = JSON.parseObject(params);
@@ -90,7 +90,7 @@ public class UserServiceImpl implements UserService {
             return JsonUtil.resultToJson(StatusCode.STATUS_INVALID_JSON);
         }
         //参数校验
-        Map<String, String> paramsMap = new HashMap<>();
+        Map<String, String> paramsMap = new HashMap<>(5);
         paramsMap.put("nickName", "String");
         paramsMap.put("phoneNum", "String");
         paramsMap.put("password", "String");

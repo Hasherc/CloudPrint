@@ -73,11 +73,10 @@ public class FileUtil {
      * @return filename：文件原始名 filePath：文件在硬盘路径及更改过的文件名
      * @throws IOException
      */
-    public static FileEntity uploadFile(String userUuid, MultipartFile file) throws FileExistsException {
+    public static FileEntity uploadFile(String userUuid, String fileUuid, MultipartFile file) throws FileExistsException {
 
         String fileName = file.getOriginalFilename();
         File tempFile = new File(getUserDir(userUuid), String.valueOf(fileName));
-        System.out.println("filename:" + fileName);
         createUserDir(userUuid);
         if (tempFile.exists()) {
             throw new FileExistsException();
@@ -99,7 +98,7 @@ public class FileUtil {
         fileEntity.setFileName(fileName);
         fileEntity.setFilePath(tempFile.getAbsolutePath());
         fileEntity.setFileSize(file.getSize());
-        fileEntity.setFileUuid(UUIDUtil.getUUID());
+        fileEntity.setFileUuid(fileUuid);
         fileEntity.setFileType(getFileType(fileName));
 
         return fileEntity;

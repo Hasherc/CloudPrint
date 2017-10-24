@@ -15,7 +15,7 @@ public class OrderConsts {
 
     public static double calculatePrice(int page, boolean color, boolean duplex) {
 
-        Double cost;
+        double cost;
 
         if (color) {
             //彩色单面

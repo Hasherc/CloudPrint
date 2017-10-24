@@ -17,10 +17,6 @@ html, body {width:100%;height:100%;} /*非常重要的样式让背景图片100%�
     margin-right:-4px;
 }
 
-.container{
-    display:table;
-    height:80%;
-}
 
 
 #notice{

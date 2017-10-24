@@ -1,3 +1,4 @@
+import com.hasherc.consts.StringConsts;
 import util.UUIDUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -11,6 +12,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 
 /**
@@ -63,10 +65,12 @@ public class test extends AbstractJunit {
 
     @Test
     public void file() throws IOException {
-
-        String uuid = "1a9a476966f149c69a74a27ac2c25801";
-        String list = orderService.getUnPaidOrder(uuid);
-        System.out.println(list);
+        HashMap<String,String> hashMap = new HashMap<>();
+        hashMap.put("dasda","dasdsa");
+        hashMap.put("dsadas","dasdsada");
+        JSONObject jsonObject = new JSONObject();
+        String a = JSON.toJSONString(hashMap);
+        System.out.println(a);
 
     }
 }
