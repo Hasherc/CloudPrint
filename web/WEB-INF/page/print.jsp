@@ -72,6 +72,7 @@
             <div class="modal-body">
                 <div id="success" class="alert alert-success  text-center" style="display: none"></div>
                 <div id="notice" class="alert alert-warning  text-center" style="display: none"></div>
+                <div id="warning" class="alert alert-danger  text-center" style="display: none"></div>
                 <form id="document-form" class="form-horizontal" role="form" >
                     <label for="documentInputFile">上传文件</label>
                             <input type="file" id="documentInputFile" name="file">

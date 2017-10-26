@@ -78,6 +78,8 @@
         #{balance,jdbcType=FLOAT}
         )
     </insert>
-
+    <select id="findUserInfo" resultMap="userInfo">
+        SELECT * FROM CloudPrint.u_info WHERE u_uuid = #{userUuid, jdbcType=VARCHAR}
+    </select>
 
 </mapper>

@@ -79,43 +79,46 @@
                     </div>
                 </li>
             </ul>
-            <div class="order_file_back">
+            <div class="order_file_back" style="display: none" id="order_file_first">
                 <div class="row">
                     <div class="col-sm-10 text-muted">
-                        <p style="font-size: small">文件名：<span id="order_file_name_1"></span></p>
-                        <p style="font-size: small">文件类型：<span id="order_file_type_1"></span></p>
-                        <p style="font-size: small">打印方式：<span id="order_print_type_1"></span></p>
-                        <p style="font-size: small">色彩：<span id="order_print_color_1"></span></p>
+                        <p style="font-size: small">文件名：<span id="order_first_file_name"></span></p>
+                        <p style="font-size: small">文件类型：<span id="order_first_file_type"></span></p>
+                        <p style="font-size: small">打印方式：<span id="order_first_print_way"></span></p>
+                        <p style="font-size: small">色彩：<span id="order_first_print_color"></span></p>
+                        <p style="font-size: small">页数：<span id="order_first_file_page"></span></p>
                     </div>
                     <div class="col-sm-1">
-                        <button class="btn btn-default btn-sm">编辑</button>
+                        <button class="btn btn-default btn-sm" id="edit_file_first">编辑</button>
                     </div>
                 </div>
 
             </div>
-            <div class="order_file_back" >
+            <div class="order_file_back" style="display:none;" id="order_file_second">
                 <div class="row">
                     <div class="col-sm-10 text-muted">
-                        <p style="font-size: small">文件名：<span id="order_file_name_2"></span></p>
-                        <p style="font-size: small">文件类型：<span id="order_file_type_2"></span></p>
-                        <p style="font-size: small">打印方式：<span id="order_print_type_2"></span></p>
-                        <p style="font-size: small">色彩：<span id="order_print_color_2"></span></p>
+                        <p style="font-size: small">文件名：<span id="order_second_file_name"></span></p>
+                        <p style="font-size: small">文件类型：<span id="order_second_file_type"></span></p>
+                        <p style="font-size: small">打印方式：<span id="order_second_print_way"></span></p>
+                        <p style="font-size: small">色彩：<span id="order_second_print_color"></span></p>
+                        <p style="font-size: small">页数：<span id="order_second_file_page"></span></p>
                     </div>
                     <div class="col-sm-1">
-                        <button class="btn btn-default btn-sm">编辑</button>
+                        <button class="btn btn-default btn-sm" id="edit_file_second">编辑</button>
                     </div>
                 </div>
             </div>
-            <div class="order_file_back">
+            <div class="order_file_back" style="display:none;" id="order_file_third">
                 <div class="row">
                     <div class="col-sm-10 text-muted">
-                        <p style="font-size: small">文件名：<span id="order_file_name_3"></span></p>
-                        <p style="font-size: small">文件类型：<span id="order_file_type_3"></span></p>
-                        <p style="font-size: small">打印方式：<span id="order_print_type_3"></span></p>
-                        <p style="font-size: small">色彩：<span id="order_print_color_3"></span></p>
+                        <p style="font-size: small">文件名：<span id="order_third_file_name"></span></p>
+                        <p style="font-size: small">文件类型：<span id="order_third_file_type"></span></p>
+                        <p style="font-size: small">打印方式：<span id="order_third_print_type"></span></p>
+                        <p style="font-size: small">色彩：<span id="order_third_print_color"></span></p>
+                        <p style="font-size: small">页数：<span id="order_third_file_page"></span></p>
                     </div>
                     <div class="col-sm-1">
-                        <button class="btn btn-default btn-sm">编辑</button>
+                        <button class="btn btn-default btn-sm" id="edit_file_third">编辑</button>
                     </div>
                 </div>
             </div>

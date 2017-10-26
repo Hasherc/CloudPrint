@@ -90,16 +90,17 @@ function check_file_num() {
         cache: false,
         processData: false,
         contentType: false,
+        async:false,
         success:function (result) {
             file_num = result.fileNum;
             if (file_num > 0){
                 $("#toOrder").show();
                 if (file_num == 3){
-                    $("#notice").show();
+                    $("#warning").show();
                     $("#documentSubmit").hide();
-                    document.getElementById("notice").innerHTML = "每个订单最多打印3个文件</br>目前已经上传了3个文件了哦";
+                    document.getElementById("warning").innerHTML = "每个订单最多打印3个文件</br>目前已经上传了3个文件了哦";
                 }else {
-                    $("#notice").hide();
+                    $("#warning").hide();
                     $("#documentSubmit").show();
                 }
             }else {
@@ -130,6 +131,7 @@ $("#documentSubmit").click(function () {
             success: function (data) {
 
                 check_file_num();
+                get_file_list();
                 $("#documentInputFile").val("");
                 if (data.status == 1) {
                     $("#success").show();
@@ -167,7 +169,7 @@ $("#documentSubmit").click(function () {
                     $("#notice").text("文件上传出错");
                     $("#imgWait").hide();
                 }
-                get_file_list();
+
             }
         });
     });

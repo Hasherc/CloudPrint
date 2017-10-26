@@ -10,7 +10,7 @@ function sendRegisterForm() {
     if (checkRegister(model)) {
         $.ajax({
             type: "post",
-            url: "register",
+            url: "/register",
             data: JSON.stringify(model),
             dataType: "json",
             contentType: "text/plain",
@@ -40,7 +40,7 @@ function sendLoginForm() {
     if (checkLogin(model)) {
         $.ajax({
             type: "post",
-            url: "loginByPhoneNum",
+            url: "/loginByPhoneNum",
             data: JSON.stringify(model),
             dataType: "json",
             contentType: "text/plain",

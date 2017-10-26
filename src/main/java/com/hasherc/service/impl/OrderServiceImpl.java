@@ -1,5 +1,7 @@
 package com.hasherc.service.impl;
 
+import com.hasherc.dao.UserDao;
+import com.hasherc.entity.UserInfo;
 import util.JsonUtil;
 import util.UUIDUtil;
 import com.alibaba.fastjson.JSON;
@@ -26,6 +28,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     OrderDao orderDao;
+    @Autowired
+    UserDao userDao;
 
     @Override
     public String placeOrder(String userUuid, String orderJson) {
@@ -100,6 +104,20 @@ public class OrderServiceImpl implements OrderService {
         orderResult.setCost(cost);
         //转为json
         return JSON.toJSONString(orderResult);
+    }
+
+    @Override
+    public String getUserNameAndPhone(String userUuid) {
+        UserInfo userInfo = userDao.findUserInfo(userUuid);
+        System.out.println(userInfo);
+        String userName = userInfo.getNickName();
+        String phoneNum = userInfo.getPhoneNum();
+        JSONObject userInfoJson =  new JSONObject();
+        userInfoJson.put("userName", userName);
+        userInfoJson.put("phoneNum", phoneNum);
+        userInfoJson.put("status",1);
+        System.out.println("userInfoJson" + userInfoJson);
+        return userInfoJson.toJSONString();
     }
 
 }

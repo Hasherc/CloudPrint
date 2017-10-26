@@ -22,4 +22,6 @@ public interface UserDao {
 
     void insertLoginTime(String userUuid);
 
+    UserInfo findUserInfo(String userUuid);
+
 }
