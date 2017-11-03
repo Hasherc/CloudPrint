@@ -7,7 +7,7 @@ CREATE TABLE `file` (
   `file_type` varchar(10) DEFAULT NULL,
   `upload_time` datetime DEFAULT NULL,
   PRIMARY KEY (`f_uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `order` (
   `order_uuid` varchar(32) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE `order` (
   `duplex` tinyint(4) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`order_uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `u_auth` (
   `u_uuid` varchar(32) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE `u_auth` (
   `last_login_time` datetime DEFAULT NULL,
   `status` bit(1) DEFAULT NULL,
   PRIMARY KEY (`u_uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `u_info` (
   `uuid` varchar(32) NOT NULL,
@@ -40,4 +40,4 @@ CREATE TABLE `u_info` (
   `phone_Num` varchar(20) DEFAULT NULL,
   `balance` float DEFAULT NULL,
   PRIMARY KEY (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
