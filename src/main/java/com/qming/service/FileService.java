@@ -1,13 +1,13 @@
-package com.hasherc.service;
+package com.qming.service;
 
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-11
  */
 public interface FileService {
-    String upload(String userUuid, String orderUuid, String fileUuid,  MultipartFile file);
+    String upload(String userUuid, String orderUuid, String fileUuid, MultipartFile file);
 
     String deleteFile(String userUuid, String fileName);
 

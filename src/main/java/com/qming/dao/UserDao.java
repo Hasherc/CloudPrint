@@ -1,12 +1,12 @@
-package com.hasherc.dao;
+package com.qming.dao;
 
-import com.hasherc.entity.UserAuth;
-import com.hasherc.entity.UserInfo;
+import com.qming.entity.UserAuth;
+import com.qming.entity.UserInfo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-7
  */
 @Repository

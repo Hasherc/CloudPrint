@@ -1,6 +1,6 @@
-package com.hasherc.dao;
+package com.qming.dao;
 
-import com.hasherc.entity.Order;
+import com.qming.entity.Order;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

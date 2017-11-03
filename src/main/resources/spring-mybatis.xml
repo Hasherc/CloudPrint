@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.hasherc">
+    <context:component-scan base-package="com.qming">
     </context:component-scan>
 
     <context:property-placeholder location="classpath:jdbc.properties"/>
@@ -27,14 +27,14 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
-        <property name="typeAliasesPackage" value="com.hasherc.entity"/>
-        <property name="mapperLocations" value="classpath:com/hasherc/mapping/*.xml"/>
+        <property name="typeAliasesPackage" value="com.qming.entity"/>
+        <property name="mapperLocations" value="classpath:com/qming/mapping/*.xml"/>
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 注入SQLSessionFactory 使用sqlSessionFactoryBeanName防止这里提前初始化sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-        <property name="basePackage" value="com.hasherc.dao"/>
+        <property name="basePackage" value="com.qming.dao"/>
 
     </bean>
 

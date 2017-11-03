@@ -3,7 +3,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-7
  */
 @RunWith(SpringJUnit4ClassRunner.class)

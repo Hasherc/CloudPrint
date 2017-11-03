@@ -1,7 +1,7 @@
-package com.hasherc.consts;
+package com.qming.consts;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-8
  */
 public class StatusCode {

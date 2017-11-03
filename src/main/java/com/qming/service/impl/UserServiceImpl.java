@@ -1,24 +1,24 @@
-package com.hasherc.service.impl;
+package com.qming.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.qming.consts.StatusCode;
+import com.qming.dao.UserDao;
+import com.qming.entity.UserAuth;
+import com.qming.entity.UserInfo;
+import com.qming.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import util.EncryptUtil;
 import util.FileUtil;
 import util.JsonUtil;
 import util.UUIDUtil;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.hasherc.consts.StatusCode;
-import com.hasherc.dao.UserDao;
-import com.hasherc.entity.UserAuth;
-import com.hasherc.entity.UserInfo;
-import com.hasherc.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-7
  */
 @Service("userService")

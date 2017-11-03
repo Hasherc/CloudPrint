@@ -1,25 +1,22 @@
-package com.hasherc.service.impl;
+package com.qming.service.impl;
 
-import netscape.javascript.JSUtil;
-import util.FileUtil;
-import util.JsonUtil;
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.hasherc.consts.StatusCode;
-import com.hasherc.dao.FileDao;
-import com.hasherc.entity.FileEntity;
-import com.hasherc.service.FileService;
+import com.qming.consts.StatusCode;
+import com.qming.dao.FileDao;
+import com.qming.entity.FileEntity;
+import com.qming.service.FileService;
 import org.apache.commons.io.FileExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import util.FileUtil;
+import util.JsonUtil;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-11
  */
 @Service
@@ -30,13 +27,13 @@ public class FileServiceImpl implements FileService {
 
     @Override
 
-    public String upload(String userUuid,String orderUuid, String fileUuid, MultipartFile file) {
+    public String upload(String userUuid, String orderUuid, String fileUuid, MultipartFile file) {
 
         FileEntity fileEntity;
         //文件存入硬盘
         try {
             fileEntity = FileUtil.uploadFile(userUuid, fileUuid, file);
-            if (fileEntity == null){
+            if (fileEntity == null) {
                 return JsonUtil.resultToJson(StatusCode.STATUS_FILE_ERROR);
             }
             fileEntity.setOrderUuid(orderUuid);

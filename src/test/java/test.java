@@ -1,22 +1,21 @@
-import com.hasherc.consts.StringConsts;
-import util.UUIDUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.hasherc.dao.FileDao;
-import com.hasherc.dao.UserDao;
-import com.hasherc.service.FileService;
-import com.hasherc.service.OrderService;
-import com.hasherc.service.UserService;
+import com.qming.dao.FileDao;
+import com.qming.dao.UserDao;
+import com.qming.service.FileService;
+import com.qming.service.OrderService;
+import com.qming.service.UserService;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import util.UUIDUtil;
 
 import java.io.IOException;
 import java.util.HashMap;
 
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-7
  */
 
@@ -65,9 +64,9 @@ public class test extends AbstractJunit {
 
     @Test
     public void file() throws IOException {
-        HashMap<String,String> hashMap = new HashMap<>();
-        hashMap.put("dasda","dasdsa");
-        hashMap.put("dsadas","dasdsada");
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("dasda", "dasdsa");
+        hashMap.put("dsadas", "dasdsada");
         JSONObject jsonObject = new JSONObject();
         String a = JSON.toJSONString(hashMap);
         System.out.println(a);

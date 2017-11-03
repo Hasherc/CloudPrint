@@ -1,4 +1,4 @@
-package com.hasherc.consts;
+package com.qming.consts;
 
 public class OrderConsts {
 

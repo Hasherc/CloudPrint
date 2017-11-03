@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-8
  */
 public class RegexUtil {

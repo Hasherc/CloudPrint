@@ -1,13 +1,13 @@
-package com.hasherc.dao;
+package com.qming.dao;
 
-import com.hasherc.entity.FileEntity;
+import com.qming.entity.FileEntity;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-11
  */
 @Repository

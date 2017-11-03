@@ -1,7 +1,7 @@
-package com.hasherc.service;
+package com.qming.service;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-7
  */
 public interface UserService {

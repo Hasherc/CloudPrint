@@ -3,7 +3,7 @@ package util;
 import java.util.UUID;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-10
  */
 public class UUIDUtil {

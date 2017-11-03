@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-8
  */
 public class JsonUtil {

@@ -1,4 +1,4 @@
-package com.hasherc.entity;
+package com.qming.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.Date;
 import static com.alibaba.fastjson.JSON.toJSONString;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-7
  */
 public class UserAuth implements Serializable {

@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.hasherc.dao.FileDao">
-    <resultMap id="file" type="com.hasherc.entity.FileEntity">
+<mapper namespace="com.qming.dao.FileDao">
+    <resultMap id="file" type="com.qming.entity.FileEntity">
         <id column="f_uuid" jdbcType="VARCHAR" property="fileUuid"/>
         <result column="u_uuid" jdbcType="VARCHAR" property="userUuid"/>
         <result column="order_uuid" jdbcType="VARCHAR" property="orderUuid"/>
@@ -15,12 +15,14 @@
     </resultMap>
 
     <select id="getFilePage" resultType="java.lang.Integer">
-        SELECT CloudPrint.file_pages FROM CloudPrint.file WHERE u_uuid=#{userUuid, jdbcType=VARCHAR} AND
-        file_name=#{fileName, jdbcType=VARCHAR}
+        SELECT CloudPrint.file_pages
+        FROM CloudPrint.file
+        WHERE u_uuid = #{userUuid, jdbcType=VARCHAR} AND
+        file_name = #{fileName, jdbcType=VARCHAR}
     </select>
 
     <insert id="insertFile" parameterType="file">
-        insert into
+        INSERT INTO
         CloudPrint.file (
         f_uuid,
         u_uuid,
@@ -31,7 +33,7 @@
         upload_time,
         order_uuid
         )
-        values (
+        VALUES (
         #{fileUuid,jdbcType=VARCHAR},
         #{userUuid,jdbcType=VARCHAR},
         #{fileName,jdbcType=VARCHAR},
@@ -43,7 +45,8 @@
         )
     </insert>
     <delete id="deleteFile">
-        DELETE FROM CloudPrint.file WHERE u_uuid = #{userUuid, jdbcType=VARCHAR} and file_name = #{fileName, jdbcType=VARCHAR}
+        DELETE FROM CloudPrint.file
+        WHERE u_uuid = #{userUuid, jdbcType=VARCHAR} AND file_name = #{fileName, jdbcType=VARCHAR}
     </delete>
     <select id="getFileList" resultType="java.lang.String">
         SELECT

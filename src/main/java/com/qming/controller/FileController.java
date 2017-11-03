@@ -1,26 +1,23 @@
-package com.hasherc.controller;
+package com.qming.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.hasherc.consts.StringConsts;
-import org.springframework.web.bind.annotation.*;
-import util.JsonUtil;
-import com.hasherc.consts.StatusCode;
-import com.hasherc.service.FileService;
+import com.qming.consts.StatusCode;
+import com.qming.consts.StringConsts;
+import com.qming.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import util.JsonUtil;
 import util.UUIDUtil;
 
-import javax.naming.Name;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-10
  */
 @RestController
@@ -34,11 +31,11 @@ public class FileController {
      */
     @ResponseBody
     @RequestMapping("/upload")
-    public String upload(@RequestParam(value = "file",required = false) MultipartFile file, HttpSession session) {
+    public String upload(@RequestParam(value = "file", required = false) MultipartFile file, HttpSession session) {
 
         String userUUID = (String) session.getAttribute(StringConsts.userUuid);
 
-        if (userUUID == null){
+        if (userUUID == null) {
             return JsonUtil.resultToJson(StatusCode.SESSION_TIMEOUT);
         }
         if (file == null) {
@@ -46,13 +43,13 @@ public class FileController {
         }
 
         String orderUUID = (String) session.getAttribute(StringConsts.orderUuid);
-        if (orderUUID == null){
+        if (orderUUID == null) {
             orderUUID = UUIDUtil.getUUID();
-            session.setAttribute(StringConsts.orderUuid,orderUUID);
+            session.setAttribute(StringConsts.orderUuid, orderUUID);
         }
 
         int fileCount = (int) session.getAttribute(StringConsts.fileCount);
-        if (fileCount == 3){
+        if (fileCount == 3) {
             return JsonUtil.resultToJson(StatusCode.GLOBAL_FAIL);
         }
         String fileName = file.getOriginalFilename();
@@ -66,9 +63,9 @@ public class FileController {
         JSONObject resultJson = JSON.parseObject(result);
         int status = resultJson.getInteger("status");
 
-        if (status != 1){
+        if (status != 1) {
             return result;
-        }else{
+        } else {
             fileNames.add(fileName);
             fileUuids.add(fileUuid);
             fileCount++;
@@ -91,14 +88,14 @@ public class FileController {
             return JsonUtil.resultToJson(StatusCode.SESSION_TIMEOUT);
         }
         int fileCount = (int) session.getAttribute(StringConsts.fileCount);
-        if (fileCount == 0){
+        if (fileCount == 0) {
             return JsonUtil.resultToJson(StatusCode.GLOBAL_FAIL);
         }
         System.out.println(fileName);
         Map<String, ArrayList<String>> fileMap = (Map<String, ArrayList<String>>) session.getAttribute(StringConsts.fileSessions);
         ArrayList<String> fileNames = fileMap.get("fileNames");
         ArrayList<String> fileUuids = fileMap.get("fileUuids");
-        if (!fileNames.contains(fileName)){
+        if (!fileNames.contains(fileName)) {
             return JsonUtil.resultToJson(StatusCode.GLOBAL_FAIL);
         }
         int index = fileNames.lastIndexOf(fileName);
@@ -126,15 +123,16 @@ public class FileController {
         }
         return fileService.getFileList(uuid);
     }
+
     @ResponseBody
     @RequestMapping("/fileList")
-    public String getfileList(HttpSession session){
+    public String getfileList(HttpSession session) {
         HashMap<String, ArrayList> fileSessions = (HashMap<String, ArrayList>) session.getAttribute(StringConsts.fileSessions);
         return JSON.toJSONString(fileSessions);
     }
 
     @RequestMapping("/fileNum")
-    public String getfileNum(HttpSession session){
+    public String getfileNum(HttpSession session) {
         JSONObject result = new JSONObject();
         result.put("fileNum", session.getAttribute(StringConsts.fileCount));
         return result.toJSONString();

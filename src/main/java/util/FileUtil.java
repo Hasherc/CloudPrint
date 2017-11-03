@@ -1,6 +1,6 @@
 package util;
 
-import com.hasherc.entity.FileEntity;
+import com.qming.entity.FileEntity;
 import org.apache.commons.io.FileExistsException;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-10
  */
 public class FileUtil {
@@ -69,7 +69,7 @@ public class FileUtil {
      * 将文件存到硬盘
      *
      * @param userUuid 文件所属用户uuid
-     * @param file 文件实体
+     * @param file     文件实体
      * @return filename：文件原始名 filePath：文件在硬盘路径及更改过的文件名
      * @throws IOException
      */
@@ -89,8 +89,6 @@ public class FileUtil {
             e.printStackTrace();
             return null;
         }
-
-
 
 
         FileEntity fileEntity = new FileEntity();

@@ -1,21 +1,21 @@
-package com.hasherc.service.impl;
+package com.qming.service.impl;
 
-import com.hasherc.dao.UserDao;
-import com.hasherc.entity.UserInfo;
-import util.JsonUtil;
-import util.UUIDUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.hasherc.consts.OrderConsts;
-import com.hasherc.consts.StatusCode;
-import com.hasherc.dao.FileDao;
-import com.hasherc.dao.OrderDao;
-import com.hasherc.entity.Order;
-import com.hasherc.entity.OrderResult;
-import com.hasherc.service.OrderService;
+import com.qming.consts.OrderConsts;
+import com.qming.consts.StatusCode;
+import com.qming.dao.FileDao;
+import com.qming.dao.OrderDao;
+import com.qming.dao.UserDao;
+import com.qming.entity.Order;
+import com.qming.entity.OrderResult;
+import com.qming.entity.UserInfo;
+import com.qming.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import util.JsonUtil;
+import util.UUIDUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,10 +112,10 @@ public class OrderServiceImpl implements OrderService {
         System.out.println(userInfo);
         String userName = userInfo.getNickName();
         String phoneNum = userInfo.getPhoneNum();
-        JSONObject userInfoJson =  new JSONObject();
+        JSONObject userInfoJson = new JSONObject();
         userInfoJson.put("userName", userName);
         userInfoJson.put("phoneNum", phoneNum);
-        userInfoJson.put("status",1);
+        userInfoJson.put("status", 1);
         System.out.println("userInfoJson" + userInfoJson);
         return userInfoJson.toJSONString();
     }

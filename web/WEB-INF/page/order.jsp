@@ -60,7 +60,8 @@
                         <span id="order_user_name">
                             default
                         </span>
-                        <a class="text-muted" style="font-size: small" data-toggle="modal" data-target="#user_name_editor">
+                        <a class="text-muted" style="font-size: small" data-toggle="modal"
+                           data-target="#user_name_editor">
                             编辑
                         </a>
                     </div>
@@ -73,7 +74,8 @@
                         <span id="order_phone_num">
                             default
                         </span>
-                        <a class="text-muted" style="font-size: small" data-toggle="modal" data-target="#phone_num_editor">
+                        <a class="text-muted" style="font-size: small" data-toggle="modal"
+                           data-target="#phone_num_editor">
                             编辑
                         </a>
                     </div>
@@ -125,7 +127,8 @@
         </div>
     </div>
 
-    <div class="modal fade" id="user_name_editor" tabindex="-1" role="dialog" aria-labelledby="ModalLabel_one" aria-hidden="true">
+    <div class="modal fade" id="user_name_editor" tabindex="-1" role="dialog" aria-labelledby="ModalLabel_one"
+         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -142,7 +145,8 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="phone_num_editor" tabindex="-1" role="dialog" aria-labelledby="ModalLabel_two" aria-hidden="true">
+    <div class="modal fade" id="phone_num_editor" tabindex="-1" role="dialog" aria-labelledby="ModalLabel_two"
+         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -152,7 +156,7 @@
                     </h4>
                 </div>
                 <div class="modal-body">
-                    <input class="form-control"  id="phone_num">
+                    <input class="form-control" id="phone_num">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" id="not_commit_phone">关闭</button>

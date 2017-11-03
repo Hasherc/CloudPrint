@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.hasherc.dao.UserDao">
+<mapper namespace="com.qming.dao.UserDao">
 
-    <resultMap id="userAuth" type="com.hasherc.entity.UserAuth">
+    <resultMap id="userAuth" type="com.qming.entity.UserAuth">
         <id column="u_uuid" jdbcType="VARCHAR" property="userUuid"/>
         <result column="email" jdbcType="VARCHAR" property="email"/>
         <result column="password" jdbcType="VARCHAR" property="password"/>
@@ -12,7 +12,7 @@
         <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime"/>
         <result column="status" jdbcType="BIT" property="status"/>
     </resultMap>
-    <resultMap id="userInfo" type="com.hasherc.entity.UserInfo">
+    <resultMap id="userInfo" type="com.qming.entity.UserInfo">
         <id column="u_uuid" jdbcType="VARCHAR" property="userUuid"/>
         <result column="nickName" jdbcType="VARCHAR" property="nickName"/>
         <result column="email" jdbcType="VARCHAR" property="email"/>
@@ -29,22 +29,20 @@
     </update>
 
     <select id="findAuthStatusByPhoneNum" resultType="int">
-        SELECT
-        status
+        SELECT status
         FROM CloudPrint.u_auth
         WHERE phone_num = #{phoneNum, jdbcType = VARCHAR}
     </select>
 
 
     <select id="loginByPhone" resultType="java.lang.String">
-        SELECT
-        u_uuid
+        SELECT u_uuid
         FROM CloudPrint.u_auth
-        WHERE phone_num = #{phoneNum, jdbcType=VARCHAR} and password = #{password, jdbcType=VARCHAR}
+        WHERE phone_num = #{phoneNum, jdbcType=VARCHAR} AND password = #{password, jdbcType=VARCHAR}
     </select>
     <insert id="insertAuth" parameterType="userAuth">
-        insert into
-        CloudPrint.u_auth(
+        INSERT INTO
+        CloudPrint.u_auth (
         u_uuid,
         email,
         phone_num,
@@ -52,7 +50,7 @@
         last_login_time,
         status
         )
-        values (
+        VALUES (
         #{userUuid,jdbcType=VARCHAR},
         #{email,jdbcType=VARCHAR},
         #{phoneNum,jdbcType=VARCHAR},
@@ -62,7 +60,7 @@
         )
     </insert>
     <insert id="insertUserInfo" parameterType="userInfo">
-        insert into
+        INSERT INTO
         cloudprint.u_info (
         u_uuid,
         nickname,
@@ -70,7 +68,7 @@
         phone_num,
         balance
         )
-        values (
+        VALUES (
         #{userUuid,jdbcType=VARCHAR},
         #{nickName,jdbcType=VARCHAR},
         #{email,jdbcType=VARCHAR},
@@ -79,7 +77,9 @@
         )
     </insert>
     <select id="findUserInfo" resultMap="userInfo">
-        SELECT * FROM CloudPrint.u_info WHERE u_uuid = #{userUuid, jdbcType=VARCHAR}
+        SELECT *
+        FROM CloudPrint.u_info
+        WHERE u_uuid = #{userUuid, jdbcType=VARCHAR}
     </select>
 
 </mapper>

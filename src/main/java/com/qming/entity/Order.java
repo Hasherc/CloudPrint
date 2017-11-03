@@ -1,4 +1,4 @@
-package com.hasherc.entity;
+package com.qming.entity;
 
 import com.alibaba.fastjson.JSON;
 

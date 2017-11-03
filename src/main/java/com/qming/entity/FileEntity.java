@@ -1,11 +1,11 @@
-package com.hasherc.entity;
+package com.qming.entity;
 
 import com.alibaba.fastjson.JSON;
 
 import java.util.Date;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-11
  */
 public class FileEntity {

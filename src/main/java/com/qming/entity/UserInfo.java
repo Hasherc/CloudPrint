@@ -1,4 +1,4 @@
-package com.hasherc.entity;
+package com.qming.entity;
 
 import com.alibaba.fastjson.JSON;
 
@@ -33,7 +33,6 @@ public class UserInfo {
     public void setUserUuid(String userUuid) {
         this.userUuid = userUuid;
     }
-
 
 
     public String getPhoneNum() {

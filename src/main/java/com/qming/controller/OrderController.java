@@ -1,14 +1,12 @@
-package com.hasherc.controller;
+package com.qming.controller;
 
-import com.hasherc.service.UserService;
-import org.springframework.web.bind.annotation.RequestBody;
-import util.JsonUtil;
-import com.hasherc.consts.StatusCode;
-import com.hasherc.service.OrderService;
+import com.qming.consts.StatusCode;
+import com.qming.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import util.JsonUtil;
 
 import javax.servlet.http.HttpSession;
 
@@ -33,24 +31,26 @@ public class OrderController {
     @RequestMapping("/getUnPaidOrder")
     public String getOrder(HttpSession session) {
         String userUuid = (String) session.getAttribute("userUuid");
-        if ( userUuid == null) {
+        if (userUuid == null) {
             return JsonUtil.resultToJson(StatusCode.SESSION_TIMEOUT);
         }
         return orderService.getUnPaidOrder(userUuid);
     }
+
     @RequestMapping("/toOrderPage")
-    public String toOrderPage(HttpSession session){
+    public String toOrderPage(HttpSession session) {
         String userUuid = (String) session.getAttribute("userUuid");
-        if ( userUuid == null) {
+        if (userUuid == null) {
             return "login";
         }
         return "order";
     }
+
     @ResponseBody
     @RequestMapping("/getUserInfo")
-    public String getUserInfo(HttpSession session){
+    public String getUserInfo(HttpSession session) {
         String userUuid = (String) session.getAttribute("userUuid");
-        if ( userUuid == null) {
+        if (userUuid == null) {
             return JsonUtil.resultToJson(StatusCode.SESSION_TIMEOUT);
         }
         return orderService.getUserNameAndPhone(userUuid);

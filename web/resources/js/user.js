@@ -66,39 +66,39 @@ function sendLoginForm() {
 function checkLogin(model) {
 
 
-        if (model.phoneNum == "") {
-            $("#notice").show();
-            $("#notice").text("手机号不能为空");
+    if (model.phoneNum == "") {
+        $("#notice").show();
+        $("#notice").text("手机号不能为空");
 
-            return false;
-        }
+        return false;
+    }
 
-        if (model.password == "") {
-            $("#notice").show();
-            $("#notice").text("密码不能为空");
-            return false;
-        }
+    if (model.password == "") {
+        $("#notice").show();
+        $("#notice").text("密码不能为空");
+        return false;
+    }
 
-        if (!check_tel(model.phoneNum)){
-            $("#notice").show();
-            $("#notice").text("请输入正确的手机号");
-            return false;
-        }
-        return true;
+    if (!check_tel(model.phoneNum)) {
+        $("#notice").show();
+        $("#notice").text("请输入正确的手机号");
+        return false;
+    }
+    return true;
 }
 
 function check_tel(model) {
-    var regx=/^(?:13\d|15\d|18[123456789])-?\d{5}(\d{3}|\*{3})$/;
+    var regx = /^(?:13\d|15\d|18[123456789])-?\d{5}(\d{3}|\*{3})$/;
     return regx.test(model);
 
 }
 
 function check_password(model) {
-    var b=/^[a-zA-Z]\w{5,17}$/;
-    if (model.length < 6 || model.length >18){
+    var b = /^[a-zA-Z]\w{5,17}$/;
+    if (model.length < 6 || model.length > 18) {
         return false;
     }
-    if (!b.test(model)){
+    if (!b.test(model)) {
         return false;
     }
     return true;
@@ -106,38 +106,38 @@ function check_password(model) {
 
 function checkRegister(model) {
 
-        if (model.nickName == "") {
-            $("#notice").show();
-            $("#notice").text("姓名不能为空");
-            return false;
-        }
-        if (model.phoneNum == "") {
-            $("#notice").show();
-            $("#notice").text("手机号不能为空");
-            return false;
-        }
-        if (!check_tel(model.phoneNum)){
-            $("#notice").show();
-            $("#notice").text("请输入正确的手机号");
-            return false;
-        }
-        if (model.password == "") {
-            $("#notice").show();
-            $("#notice").text("密码不能为空");
-            return false;
-        }
-        if (model.password != model.repeat_password) {
-            $("#notice").show();
-            $("#notice").text("两次密码不一致请重新输入");
-            return false;
-        }
-        if (!check_password(model.password)) {
-            $("#notice").show();
-            $("#notice").text("请按要求输入密码");
-            return false;
-        }
+    if (model.nickName == "") {
+        $("#notice").show();
+        $("#notice").text("姓名不能为空");
+        return false;
+    }
+    if (model.phoneNum == "") {
+        $("#notice").show();
+        $("#notice").text("手机号不能为空");
+        return false;
+    }
+    if (!check_tel(model.phoneNum)) {
+        $("#notice").show();
+        $("#notice").text("请输入正确的手机号");
+        return false;
+    }
+    if (model.password == "") {
+        $("#notice").show();
+        $("#notice").text("密码不能为空");
+        return false;
+    }
+    if (model.password != model.repeat_password) {
+        $("#notice").show();
+        $("#notice").text("两次密码不一致请重新输入");
+        return false;
+    }
+    if (!check_password(model.password)) {
+        $("#notice").show();
+        $("#notice").text("请按要求输入密码");
+        return false;
+    }
 
-        return true;
+    return true;
 }
 
 $(document).keyup(function (event) {
@@ -151,7 +151,7 @@ $(document).keyup(function (event) {
         $("#login_button").trigger("click");
     }
 });
-$(function (){
+$(function () {
     $("[data-toggle='popover']").popover();
 });
 

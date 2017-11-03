@@ -4,10 +4,10 @@
 <configuration>
     <!-- 定义别名 -->
     <typeAliases>
-        <typeAlias alias="userInfo" type="com.hasherc.entity.UserInfo"/>
-        <typeAlias alias="userAuth" type="com.hasherc.entity.UserAuth"/>
-        <typeAlias alias="file" type="com.hasherc.entity.FileEntity"/>
-        <typeAlias alias="order" type="com.hasherc.entity.Order"/>
+        <typeAlias alias="userInfo" type="com.qming.entity.UserInfo"/>
+        <typeAlias alias="userAuth" type="com.qming.entity.UserAuth"/>
+        <typeAlias alias="file" type="com.qming.entity.FileEntity"/>
+        <typeAlias alias="order" type="com.qming.entity.Order"/>
     </typeAliases>
 
 </configuration>

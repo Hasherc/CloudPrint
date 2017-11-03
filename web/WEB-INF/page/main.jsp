@@ -50,7 +50,7 @@
 </nav>
 
 
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+<script src="/resources/js/jquery-3.2.1.min.js"></script>
 <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 <script src="/resources/js/global.js"></script>
 <script src="/resources/js/user.js"></script>

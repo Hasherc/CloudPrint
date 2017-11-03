@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * @author hasherc
+ * @author qming
  * @ 17-8-13
  */
 public class OfficeUtil {
